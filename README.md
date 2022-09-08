@@ -39,7 +39,7 @@
 4. [Diseño](doc/templates/5_deseño.md)
 5. Implantación
     * 5.1 [Implementación](doc/templates/6_implementacion.md)
-    * 5.2 [Producción](doc/templates/7_produccion.md)
+    * 5.2 [Producción](doc/templates/7_producion.md)
 
 
 ## Guía de contribución
