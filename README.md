@@ -37,7 +37,7 @@
 2. [Análisis](doc/templates/3_analise.md)
 3. [Planificación](doc/templates/4_planificacion.md)
 4. [Diseño](doc/templates/5_deseño.md)
-5. [Implantación]
+5. Implantación
     * 5.1 [Implementación](doc/templates/6_implementacion.md)
     * 5.2 [Producción](doc/templates/7_produccion.md)
 
