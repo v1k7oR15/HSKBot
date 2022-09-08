@@ -1,4 +1,4 @@
-# FASE DE IMPLANTACIÓN
+# Fase de produción
 
 ## Manual técnico:
 

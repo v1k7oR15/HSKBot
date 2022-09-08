@@ -1,18 +1,25 @@
-# FASE DE DESEÑO
+# DESEÑO
 
-## Modelo conceptual do dominio da aplicación e/ou Diagrama de clases [usando UML, ConML, ou linguaxe semellante].
+## Deseño do proxecto
 
-## Casos de uso [descritos en fichas e/ou mediante esquemas; deben incluír os actores (tipos de usuarios) implicados en cada caso de uso].
+> *TODO*: Elabora os diagramas e modelos que consideres necesarios. Nesta fase, debes documentar toda a idea do proxecto a nivel de deseño de forma que elabores unha "imaxe" que permita saber con certo detalle como será o resultado da implementación. 
 
-## Deseño de interface de usuarios [mockups ou diagramas...].
+### Modelo conceptual do dominio da aplicación e/ou Diagrama de clases [usando UML, ConML, ou linguaxe semellante].
 
-## Diseño de interfaxes software e hardware (se aplica)
+### Casos de uso [descritos en fichas e/ou mediante esquemas; deben incluír os actores (tipos de usuarios) implicados en cada caso de uso].
 
-## Diagrama de Base de Datos.
+### Deseño de interface de usuarios [mockups ou diagramas...].
 
-## Diagrama de compoñentes software que constitúen o produto e de despregue.
+### Diseño de interfaxes software e hardware (se aplica)
 
-## Diagrama de despregamento
+### Diagrama de Base de Datos.
 
-## Outros diagramas, esquemas ou documentacion (seguridade, redundancia, expliacións, configuracións...)
+### Diagrama de compoñentes software que constitúen o produto e de despregue.
 
+### Diagrama de despregamento
+
+### Outros diagramas, esquemas ou documentacion (seguridade, redundancia, expliacións, configuracións...)
+
+## Calidade
+
+> *TODO*: Identifica os aspectos que compre controlar para garantir a calidade do proxecto, determinando os procedementos de actuación ou execución das actividades, establecendo un sistema para garantir o cumprimento das condicións do proxecto (requisitos, funcionalidades...)
