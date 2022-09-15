@@ -1,6 +1,6 @@
 # Fase de produción
 
-## Manual técnico / administración:
+# Manual técnico e de administración:
 
 ### Información relativa á instalación ou despregamento: 
 
@@ -22,7 +22,7 @@
 * Especifica o sistema para mellorar e corrixir os erros detectados.
 * Xestión de incidencias: como se atenderán e resolverán. Indica como poderán os usuarios comunicar as incidencias.
 
-## Manual de usuario
+# Manual de usuario
 
 ### Formación de usuarios 
 * Indicar se será necesario formar ós usuarios. En caso afirmativo planificar e xustificar.
@@ -36,6 +36,6 @@
 
 > Poden existir varios manuais ou estar todo unificado nun único en función das necesidades do proxecto.
 
-## Protección de datos de carácter persoal.
+# Protección de datos de carácter persoal.
 
 * Se almacenas datos persoais e/ou de carácter sensible, debes especificar como deberás comunicar, almacenar e xestionar a información.
