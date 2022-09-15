@@ -1,15 +1,14 @@
 # Fase de produción
 
-## Manual técnico:
+## Manual técnico / administración:
 
-### Información relativa á instalación: 
+### Información relativa á instalación ou despregamento: 
 
-* Requirimentos de hardware, servidores na nube, etc.
-* Software necesario (S.O. válidos, software externo co que interaciona a nosa aplicación, etc.).
+* Se precisas dun servicio, como unha base de datos, servidor, servicios na nube... indica os pasos a seguir para poder despregar/instalar o teu sistema.
+* Especifica o software necesario e a súa posta a punto (SO, servidores, etc).
 * Configuración inicial seguridade: devasa, control usuarios, rede.
-* Carga inicial de datos na base de datos. Migración de datos xa existentes noutros formatos.
-* Usuarios do sistema. Usuarios da aplicación.
-* Diagrama final de despregue (se hai variacións con respecto ó realizado na anterior fase).
+* Se fora o caso, explica o proceso de carga inicial de datos na base de datos ou migración de datos xa existentes noutros formatos.
+* Alta de usuarios dos sistemas necesarios.
 
 ### Información relativa á administración do sistema, é dicir, tarefas que se deberán realizar unha vez que o sistema estea funcionando, como por exemplo:
 
@@ -17,27 +16,26 @@
 * Copias de seguridade da base de datos.
 * Xestión de usuarios.
 * Xestión seguridade.
-* Xestión de incidencias, que poden ser de dous tipos: de sistema (accesos non autorizados á BD, etc) ou de fallos no software.
 
 ### Información relativa ó matemento do sistema: 
 
-* Corrixir erros.
-* Engadir novas funcionalidades.
-* Adaptación por actualizacións de software e/ou hardware.
-
-## Xestión de incidencias
-
-Poden ser incidencias de dous tipos: de sistema (accesos non autorizados á BD, etc) ou de fallos no software.
-
-## Protección de datos de carácter persoal.
+* Especifica o sistema para mellorar e corrixir os erros detectados.
+* Xestión de incidencias: como se atenderán e resolverán. Indica como poderán os usuarios comunicar as incidencias.
 
 ## Manual de usuario
 
+### Formación de usuarios 
 * Indicar se será necesario formar ós usuarios. En caso afirmativo planificar e xustificar.
-* Manual de usuario, FAQ ou outro xeito que sexa o máis adecuado para que os usuarios saiban usar a nosa aplicación informática.
 
-## Manual de administrador
+### Instrucións iniciais
+* Elabora un manual breve coa información necesaria para o uso da aplicación.
 
-* Indicar se será necesario formar ós administradores. En caso afirmativo planificar e xustificar.
-* Manual de administración, FAQ ou outro xeito que sexa o máis adecuado para que os administradores da nosa aplicación informática.
-* Poden existir varios manuais ou unificarse, dependendo do sistema do proxecto: manual do dba, manual do servidor, de servicios...
+### FAQ
+
+* Elabora unha serie de preguntas e respostas habituais a modo de axuda para os usuarios.
+
+> Poden existir varios manuais ou estar todo unificado nun único en función das necesidades do proxecto.
+
+## Protección de datos de carácter persoal.
+
+* Se almacenas datos persoais e/ou de carácter sensible, debes especificar como deberás comunicar, almacenar e xestionar a información.
