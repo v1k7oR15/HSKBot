@@ -58,18 +58,3 @@
     2.1.Modelo elixido (Modelo de pago / Freemium (é de balde pero as funcionalidades extras son de pago) / In house (desenvolvementos a medida para contornos empresariais / De subscrición / Por publicidade / Outros)
     
     2.2. Xustifica a elección.
-
-# Webgrafía
-
-Xustificación de necesidades, viabilidade:
-
-**Guía para a elaboración de proyectos. Gobierno Vasco.**
-
-https://www.pluralismoyconvivencia.es/upload/19/71/guia_elaboracion_proyectos_c.pdf  (páxina 26 e seguintes)
-
-Competencia:
-
-**Modelo de plan de negocios. Empresa de servicios informáticos. IGAPE**
-
-http://www.igape.es/images/crear-unha-empresa/Recursos/PlansdeNegocio/16ServiciosInformaticos12_5_cas.pdf 
-(páxina 45 e seguintes)
