@@ -4,9 +4,11 @@
 
 > Situa en esta carpeta todas las imágenes a las que haga referencia la documentación.
 
-> Para enlazar las imágenes, utiliza el código
+> Para enlazar las imágenes, utiliza el siguiente código
 
 `![alt text](path "Title")`
+
+> Y utiliza como path (url) el enlace que se puede copiar de la propia interfaz web de GitLab:
 
 ![Ejemplo enlace fichero](doc/img/capturaEnlace.png "Enlace a imagen")
 
