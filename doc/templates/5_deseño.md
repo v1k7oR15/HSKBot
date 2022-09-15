@@ -8,9 +8,9 @@
 
 ### Casos de uso [descritos en fichas e/ou mediante esquemas; deben incluír os actores (tipos de usuarios) implicados en cada caso de uso].
 
-### Deseño de interface de usuarios [mockups ou diagramas...].
+### Deseño de interfaces de usuarios [mockups ou diagramas...].
 
-### Diseño de interfaxes software e hardware (se aplica)
+### Diseño de interfaces software e hardware (se aplica)
 
 ### Diagrama de Base de Datos.
 
