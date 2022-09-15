@@ -34,8 +34,6 @@
 
 * Elabora unha serie de preguntas e respostas habituais a modo de axuda para os usuarios.
 
-> Poden existir varios manuais ou estar todo unificado nun único en función das necesidades do proxecto.
-
 # Protección de datos de carácter persoal
 
 * Se almacenas datos persoais e/ou de carácter sensible, debes especificar como deberás comunicar, almacenar e xestionar a información.
