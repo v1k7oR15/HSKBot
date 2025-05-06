@@ -125,6 +125,7 @@ O obxectivo xeral é desenvolver unha aplicación funcional que permita aos estu
     -Posible colaboración con academias ou profesores de chinés para difusión
     
     1.2.	Xustifica a elección.
+    
     Redes sociais e SEO permiten baixo custo e alta difusión orgánica, chegando directamente ao público obxectivo (estudantes autodidactas, alumnos de escolas, curiosos de linguas). Colaborar con profesionais do ensino de chinés daría credibilidade e visibilidade.
     
 2.	Modelo de negocio.
