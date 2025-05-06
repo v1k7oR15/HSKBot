@@ -6,16 +6,16 @@ Vou realizar un proxecto con entregable funcional. Non será só un deseño ou p
 
 * En que consiste o teu proxecto? Cal é o propósito principal do mesmo?
 
-O proxecto consiste nunha aplicación (inicialmente de escritorio) que permite organizar o vocabulario dos primeiros niveis de HSK (os exames oficiais de chinés) de forma ordenada, visual e filtrable.
+O proxecto consiste nunha aplicación que permite organizar o vocabulario dos primeiros niveis de HSK (os exames oficiais de chinés) de forma ordenada, visual e filtrable.
 O propósito principal é facilitar o estudo activo do chinés simplificado, permitindo ao usuario controlar que vocabulario aprende, como o clasifica e ter sempre un acceso ordenado e personalizado.
 
 * A quen vai destinada a aplicación? (Cómo é o contexto social do cliente ou sector da empresa á que está dirixido).
 
-Vai destinada principalmente a estudantes de chinés, tanto autodidactas como alumnos de escolas ou academias de idiomas. Tamén podería ser útil para profesores que queiran compartir listas personalizadas cos seus alumnos. O contexto é o sector educativo, especialmente no campo das linguas extranxeiras.
+Vai destinada principalmente a estudantes de chinés, tanto autodidactas como alumnos de escolas ou academias de idiomas. Tamén podería ser útil para profesores que queiran compartir listas personalizadas cos seus alumnos. O contexto no que podería ser utilizado é no sector educativo.
 
 * Cal é a necesidade ou necesidades que se pretenden cubrir ou satisfacer? O desenvolvemento deste proxecto, abre unha oportunidade de negocio? É posible comercializalo? Como?
 
-Si, abre unha oportunidade clara: a aplicación podería evolucionar a unha versión web con subscrición, incluíndo máis servizos como exercicios personalizados, IA máis avanzada, análises de progreso e mesmo acceso multiusuario para escolas ou academias. Poderíase monetizar a través de plans premium que cubran os custos da API e xeren beneficios.
+Si, abre unha oportunidade clara, a aplicación podería evolucionar a unha versión web con subscrición, incluíndo máis servizos como exercicios personalizados, IA máis avanzada, análises de progreso e mesmo acceso multiusuario para escolas ou academias. Poderíase monetizar a través de plans premium que cubran os custos da API e xeren beneficios.
 
 * Existen na actualidade aplicacións que tenten dar resposta a esa(s) necesidade(s)? En que medida o conseguen?
 
@@ -27,7 +27,7 @@ Obxectivos principais:
 - Crear unha aplicación funcional para xestionar e estudar vocabulario chinés.
 - Integrar unha IA (DeepSeek) para facilitar a creación e clasificación automática de entradas.
 - Permitir filtrar, exportar e practicar os datos de forma visual e organizada.
-- Garantir unha experiencia de usuario intuitiva, sen rexistro complicado nin dependencia constante de conexión.
+- Garantizar unha experiencia de usuario intuitiva, sen rexistro complicado nin dependencia constante de conexión.
 
 Requisitos básicos que debe cumprir:
 - Base de datos local (SQLite) para almacenar o vocabulario.
