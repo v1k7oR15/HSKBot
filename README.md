@@ -6,6 +6,8 @@
 ## Descripción
 
 > *TODO*: Realiza una breve descripción del proyecto. No menos de 100 palabras y no más de 300. Resalta lo fundamental **con tus propias palabras**. Utiliza un lenguaje correcto, **pero natural**, que lo entienda todo el mundo, incluso y en especial, las personas que no tengan un conocimiento técnico avanzado. Puede ser un extracto o resumen de apartados que ya contemples en otros ficheros.
+HSKBot é unha aplicación deseñada para axudar ao estudo activo de vocablario de chinés mandarín, sobre todo pensada para os primeriros 4 niveis do exame oficial HSK. Esta ferramenta permiteññe ao usuario construir a sua propia base de datos de palabras. Engade cada palabra manualmente ou, se se prefire, deixa que a IA complete toda a información (pinyin, traducción ao galego/castelán, tipo gramatical, nivel HSK e un exemplo real de uso). Unha vez que o usuario teña unha lista de caracteres poderanse exportar de forma ordenada e filtrada por nivel, categoría léxica ou calqueira criterio que o usuario precise e estos exportaranse nunha vista clara con códigos de cor para mellorar a memorización 
+Ademais ofrece un chat integrado que, dentro de un limites controlados, o usuario poderá xerar exercicios personalizdos, resolver dúbidas lingüísticas empregando chamadas de funcións seguras: a IA só le a base de datos en modo lectura, evitando así cambios non desexados. Cando o usario quere levar a lista de vocabulario ao papel, simplemente con un click poderá exportar a listaxe a un excel ordenado. Así HSKBot converte as longas listas oficias en material de estudo flexible e visual.
 
 ## Instalación / Puesta en marcha
 
