@@ -1,57 +1,78 @@
 # REQUIRIMENTOS DO SISTEMA
-Este documento describe os requirimentos para \[nome do proxecto\] especificando que funcionalidade ofrecerá e de que xeito.
+Este documento recolle os requirimentos do proxecto HSKBot, unha aplicación web para organizar e estudar vocabulario de chinés mandarín
 
 ## Descrición Xeral
 
-Descrición Xeral do proxecto
+HSKBot é unha plataforma en Django orientada a estudantes que necesitan rexistrar, clasificar e practicar léxico chinés.
+A aplicación integra Tailwind CSS para unha interface limpa, IA (vía DeepSeek) para xerar pinyin, tradución, exemplos e exercicios, e posibilita a exportación visual a Excel. O sistema é multiusuario, preparado para crecemento SaaS.
 
 ## Funcionalidades
-Describir que servizos ou operacións se van poder realizar por medio do noso proxecto, indicando que actores interveñen en cada caso.
-Enumeralas (cunha breve descripción se aplica), de maneira que na fase de deseño poidamos definir o diagrama ou configuración correspondente a cada funcionalidade.
 
-Exemplo:
- 1. Xestión de clientes na BD
- 2. Xestión de pedidos
- ...
- 3. Configuración do directorio activo
- 4. Configuración do DNS
- 
+- Rexistro e autenticación (e-mail / social)
+- Alta de caracteres e palabras:
+  - Manual ou automática (petición á IA)
+  - Clasificación por nivel HSK, tipo gramatical, tags personalizados
+- Buscador avanzado (pola forma, pinyin, tradución, nivel, tipo)
+- Filtros dinámicos: nivel HSK exacto ou acumulativo
+- Exportación:
+  - Folla de cálculo en formato XLSX con cores por categoría
+- Rol administrador: xestión de usuarios, respaldo da BD, parámetros IA
+- API REST (token-based) para integracións futuras (móbil, desktop, LMS)
+
 ## Requerimentos non funcionais
-Requerimentos relativos a rendemento, seguridade, etc. se procede
+- Rendemento: tempo de resposta < 300 ms para consultas.
+- Escalabilidade: dockerizado; preparado para réplicas horizontais.
+- Seguridade: cifrado TLS 1.3; almacenamento de credenciais con Argon2; limitación de chamadas á IA por usuario.
+
 
 ## Tipos de usuarios
-Tipos de usuario que poderán acceder ó noso sistema. Poderán diferenciarse polos permisos sobre os datos, pantallas que se lles amosan, operacións que poden levar a cabo, etc.
-
-Exemplo:
-  * Usuario xerente, que terá acceso a ...
-  * Usuario técnico, que poderá...
+- Estudante: añadir vocabulario, crear listas, exportar material.
+- Administrador: acceso total a configuración, facturación, API-keys e backups.
 
 
 ## Avaliación da viabilidade técnica do proxecto
 
-### Hardware requerido
-Analizar as opcións hardware existentes e xustificar a idoneidade dos compoñentes seleccionados.
+### Hardware
+- Desenvolvemento: Ordenador portátil i5/16 GB ou superior.
 
-### Software
-Analizar as opcións software existentes e xustificar a idoneidade dos compoñentes seleccionados.
+#### Software
+- Backend: Python 3.12, Django 5, Django REST Framework, Celery + Redis.
+- Frontend: Tailwind CSS; build automatizado con django-tailwind.
+- Base de datos: PostgreSQL 16 (SQLite para modo local).
 
-## Interfaces externos
-En caso dun proxecto orientado ao desenvolvemento de software, indicar (se procede) como se comunicará o noso software co exterior. É posible que só teña interfaces de usuario, que normalmente son as pantallas. Un exemplo de interface hardware sería un lector de código de barras. As interfaces software son aquelas que se comunican con outro software, como por exemplo un servicio web ao que se conectan aplicacións cliente.
+#### Infraestrutura 
+- Docker, docker-compose.
 
-### Interfaces de usuario
-
-
-### Interfaces hardware
-
-
-### Interfaces software
-
+### Interfaces externos
+- Interface de usuario: SPA progresiva servida por Django Templates.
+- Interface software: REST JSON autenticado por token (JWT).
+- Servizo IA: API DeepSeek Chat v3.
 
 ## Análise de riscos e interesados
-Determinar todas aquelas persoas, entidades ou cousas que poden ter un impacto (positivo ou negativo) no proxecto ou na idea de negocio, e indicar as medidas a levar a cabo para tratar de potenciar os impactos positivos e evitar ou mitigar os posibles impactos negativos.
+# Tabla de riesgos y mitigaciones
+
+| Interesado   | Impacto | Riesgo                             | Mitigación                                  |
+|--------------|---------|------------------------------------|---------------------------------------------|
+| Estudantes  | Alto    | Sobrecarga de la IA → latencia     | Caché de respuestas, límite de uso          |
+| Estudantes    | Medio   | Datos incompletos                  | Validación manual + importación por lotes   |
+| Estudantes   | Alto    | Fallo de exportación               | Backups diarios + tests de integración      |
+| Proveedor IA | Alto    | Cambio de precios                  | Abstracción de driver, cambio a otro LLM    |
+
 
 ## Actividades
-Definir, de forma xeral, os pasos que se han seguir para levar a cabo o proxecto, de forma que na fase de planificación nos sirvan como referencia para detallar as tarefas, recursos e temporalización necesaria para cada fase.
+- Análise de requisitos e deseño BD
+- Configuración do repo (GitLab) e CI/CD
+- Integración Tailwind + prototipado UI
+- Modelado de datos, vistas, formularios
+- Integración DeepSeek e almacenamento de respostas
+- Módulo de exercicios e estatísticas
+- Exportación a Excel/PDF
+- Tests, documentación, despregue en VPS con Docker
+- Demo para titoría e iteración final
 
 ## Melloras futuras
-É posible que o noso proxecto se centre en resolver un problema concreto que se poderá ampliar no futuro con novas funcionalidades, novas interfaces, etc.
+- App móbil híbrida.
+- Sincronización espaciada baseada en algoritmos SM-2.
+- Múltiples idiomas.
+- Facilitar tamén o aprendizaxe da gramática.
+- Sistema de pagamento e plans de subscrición SaaS.
