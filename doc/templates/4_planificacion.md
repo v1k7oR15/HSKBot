@@ -2,45 +2,53 @@
 
 ## Obxectivos do proxecto
 
+- Dispoñibilizar unha aplicación web (SaaS auto-instalable) que permita rexistrar, clasificar e practicar vocabulario HSK (niveles 1-4, escalable a 6).
+- Integrar IA DeepSeek para xeración de pinyin, significado, exemplos e exercicios.
+- Ofrecer exportación a Excel/PDF con formato amigable.
+- Facilitar panel de progreso para estudantes e zona de xestión para docentes/academias.
+- Despregue dockerizado, preparado para multi-usuario e futuras versións móbil/API.
+
 ## Guía de planificación do proxecto
+
+| Aspecto              | Decisión                                                                                                                                                                                                        |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Metodoloxía**      | **Incremental-iterativa** (Scrum “ligero”). <br>– Entregas pequenas cada 2-3 semanas.<br>– Permite mostrar versións funcionais.<br>– Reduce risco á hora de integrar IA e exportación. |
+| **Duración total**   | 8 semanas.                                                                                                                                                                                   |
+| **Recursos humanos** | 1 desenvolvedor.                                                                                                                               |
+| **Ferramentas**      | VS Code, GitLab, SQLite, Tailwind, DeepSeek API.                                                                                                                               |
+
 
 ### Metodoloxía
 Indica a metodoloxía que se utilizará para a elaboración do proxecto: ciclo en cascada, incremental, espiral... Xustifica a elección.
 
 ### Fases planificadas
 
-Descríbense as fases en que se divide o proxecto e as tarefas que se han levar a cabo en cada unha destas fases.
-Pódense indicar os recursos materiais e humanos asociados a cada tarefa ou, se son os mesmos, de maneira máis xeral.
-
 #### Fase 1: Estudo de necesidades e modelo de negocio
 
-##### Tarefa 1: xxxxxxxx
+| Tarefa                    | Descrición                                           | HW/SW                  | Recursos humanos | Duración |
+| ------------------------- | ---------------------------------------------------- | ---------------------- | ---------------- | -------- |
+| 1.1 Investigación usuario | análise PDFs HSK | Portátil, Google Forms            | Portátil               | Víctor           | 2 h      |
+| 1.2 Análise competidores  | Apps HSK existentes, prezos, carencias               | Navegador              | Víctor           | 1 h      |
 
-Descrición: 
+#### Fase 2: Deseño técnico
 
-Recursos hardware/software: 
+| Tarefa                        | Descrición                            | HW/SW                 | Recursos | Dur. |
+| ----------------------------- | ------------------------------------- | --------------------- | -------- | ---- |
+| 2.1 Diagramas UML             | Casos de uso, modelo BD, secuencia IA | Draw\.io              | Víctor   | 2 h  |
+| 2.2 Prototipo UI wireframe    | Navegación, mockups Tailwind          | Figma                 | Víctor   | 5 h  |
+| 2.3 Config inicial repo       | GitLab, `.venv`                       | VS Code               | Víctor   | 2 h  |
+| 2.4 Def. API DeepSeek         | Especificar prompts, límite tokens    | Postman               | Víctor   | 2 h  |
+| 2.5 Plan seguridade & back-up | backups BD                            | Markdown              | Víctor   | 2 h  |
+| 2.6 Plan probas               | Matriz de test unit + funcional       | pytest                | Víctor   | 4 h  |
 
-Recursos humanos: Persoas que se encargarán de realizar esta tarefa
+#### Fase 3: Construcción incremental
 
-Duración: 
-
-#### Tarefa 2
-...
-
-#### Fase 2: xxxxx
-
-##### Tarefa 1: xxxxxxxx
-
-Descrición: 
-
-Recursos hardware/software: 
-
-Recursos humanos: 
-
-Duración: 
-
-#### Tarefa 2
-...
+| Sprint | Funcionalidade principal                                             | Horas ciclo |
+| ------ | -------------------------------------------------------------------- | ----------- |
+| S1     | **Autenticación + modelo Vocabulario** <br>CRUD, import manual       | 10          |
+| S2     | **Integración Tailwind + UI básica** <br>Listado, filtro nivel       | 10          |
+| S3     | **IA DeepSeek** <br>Alta automática, xeración exercicios simples     | 10          |
+| S4     | **Exportación Excel/PDF** <br>Formato con cores por categoría        | 10          |
 
 ### Diagrama de Gantt
 Un diagrama de Gantt é unha representación gráfica da secuenciación que tes que seguir para realizar as tarefas planificadas. Pódese usar o software "Gantt project" ou calquera outro que permita representar nun cronograma a información relativa á planificación de tarefas. Neste diagrama plasmarás de forma gráfica e manexable as fases e tarefas anteriores.
