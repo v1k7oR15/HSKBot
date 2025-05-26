@@ -1,16 +1,19 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<script src="{% static 'js/chat.js' %}"></script>
+<html lang="es">
 <head>
     <title>HSKBot</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     {% tailwind_preload_css %}
     {% tailwind_css %}
 </head>
-<body class="bg-sky-800 leading-normal tracking-normal">
+<body class="bg-blue-800 leading-normal tracking-normal">
     <header class="flex items-center justify-between p-8 bg-gray-800">
         <div>
             <img src="{% static 'img/logo.png' %}" alt="Logo" class="w-16 h-16" />
@@ -29,7 +32,7 @@
         </form>
     </header>
     <div class="flex min-h-screen">
-        <aside class="w-1/6 bg-sky-950 p-4">
+        <aside class="w-1/6 bg-sky-950 p-4 shadow-lg">
             <nav>
                 <ul class="space-y-4 text-lg">
                     <li><p class="text-white hover:text-blue-500">Inicio</p></li>
@@ -55,23 +58,8 @@
                 </select>
             </div>
         </aside>
-        <main class="flex-1 p-4">
-            <div class="container mx-auto px-4">
-                <section class="flex flex-col items-center justify-center">
-                    <h1 class="text-5xl bg-violet-700">Página de prueba</h1>
-                    <p class="text-gray-7 mt-4">
-                        Este es un ejemplo de una página web creada con Django y Tailwind CSS.
-                        Esta página utiliza un diseño responsivo y moderno, lo que la hace adecuada para una variedad de dispositivos y tamaños de pantalla.
-                    </p>
-                </section>
-                <div>
-                    <h2 class="text-3xl bg-slate-500 text-center mt-8">Lista de palabras</h2>
-                    <ul class="bg-green-600/30P list-disc list-inside mt-4 mb-4">
-                        <li class="text-gray-700">Palabra 1</li>
-                        <li class="text-gray-700">Palabra 2</li>
-                    </ul>
-                </div>
-            </div>
+        <main class="flex flex-col items-center justify-center w-screen min-h-screen bg-blue-950 text-gray-800 p-10">
+            {% include "chat.html" %}
         </main>
     </div>
     <footer class="bg-sky-50 text-blue-600">

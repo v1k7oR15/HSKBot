@@ -119,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'vocabulario/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -133,3 +133,6 @@ SITE_ID = 1
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+# API Keys and other sensitive information
+DEEPSEEK_API_KEY = "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" 
