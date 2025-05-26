@@ -135,4 +135,4 @@ INTERNAL_IPS = [
 ]
 
 # API Keys and other sensitive information
-DEEPSEEK_API_KEY = "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" 
+DEEPSEEK_API_KEY = "sk-f803ac62a21a460eafb51f2013fd2089" 

@@ -1,6 +1,6 @@
 {% load static tailwind_tags %}
 {% for mensaje in mensajes %}
-    <div class="flex w-full mt-2 space-x-3 max-w-xs {% if mensaje.role == 'user' %}ml-auto justify-end{% endif %}">
+    <div class="flex w-full mt-2 space-x-3 max-w-xl {% if mensaje.role == 'user' %}ml-auto justify-end{% endif %}">
         {% if mensaje.role == 'assistant' %}
         <div class="flex-shrink-0 h-10 w-10 rounded-full">
             <img src="{% static 'assets/svg/deepseek-color.svg' %}" alt="DeepSeek" class="h-full p-1"/>

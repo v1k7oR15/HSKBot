@@ -5,6 +5,10 @@ from .ia.deepseek import ai_message
 
 def base_view(request):
     # Recupera el historial de la sesión o crea uno nuevo
+    return render(request, 'inicio.html')
+
+def chat_view(request):
+    # Esta vista es para manejar la lógica del chat
     mensajes = request.session.get('mensajes', [])
 
     if request.method == 'POST':
@@ -20,5 +24,4 @@ def base_view(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         html = render_to_string('chat_messages.html', {'mensajes': mensajes}, request=request)
         return JsonResponse({'html': html})
-
-    return render(request, 'base.html', {'mensajes': mensajes})
+    return render(request, 'chat.html', {'mensajes': mensajes})
