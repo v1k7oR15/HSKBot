@@ -13,11 +13,11 @@ En canto aos obxectivos técnicos, o sistema debe permitir ao usuario:
 - Consultar un asistente virtual para dúbidas ou axuda.
 
 Os requisitos básicos do sistema inclúen:
--Base de datos PostgreSQL (ou SQLite en desenvolvemento).
--Interfaz web moderna baseada en Tailwind CSS.
--Backend con Django e integración con API de IA (DeepSeek).
--Exportación de datos a Excel (formato profesional).
--Sistema de usuario con autenticación e sesión segura.
--Control de chamadas á IA para garantir seguridade e estabilidade.
+- Base de datos PostgreSQL (ou SQLite en desenvolvemento).
+- Interfaz web moderna baseada en Tailwind CSS.
+- Backend con Django e integración con API de IA (DeepSeek).
+- Exportación de datos a Excel (formato profesional).
+- Sistema de usuario con autenticación e sesión segura.
+- Control de chamadas á IA para garantir seguridade e estabilidade.
 
 As tecnoloxías empregadas serán Python como linguaxe principal, Django como framework de backend, Tailwind CSS para a construción da interface de usuario, PostgreSQL como base de datos en produción, e a API de DeepSeek para tarefas de enriquecemento automático e interacción intelixente.
