@@ -2,8 +2,6 @@
 
 ## Deseño do proxecto
 
-> *TODO*: Elabora os diagramas e modelos que consideres necesarios. Nesta fase, debes documentar toda a idea do proxecto a nivel de deseño de forma que elabores unha "imaxe" que permita saber con certo detalle como será o resultado da implementación. 
-
 ### Modelo conceptual do dominio da aplicación e/ou Diagrama de clases [usando UML, ConML, ou linguaxe semellante].
 <img src="victor-manuel-iglesias/doc/img/diagramadeclases.svg" alt="Diagrama UML" />
 ### Casos de uso [descritos en fichas e/ou mediante esquemas; deben incluír os actores (tipos de usuarios) implicados en cada caso de uso].
