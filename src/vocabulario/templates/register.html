@@ -1,0 +1,110 @@
+{% load static tailwind_tags %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="es" class="h-screen overflow-hidden">
+<head>
+    <title>HSKBot - Registro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    {% tailwind_preload_css %}
+    {% tailwind_css %}
+</head>
+<body class="min-h-screen bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style="font-family: 'Rubik', sans-serif;">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-white drop-shadow">Crear cuenta</h2>
+        <p class="mt-2 text-center text-sm text-gray-200 max-w">
+            ¿Ya tienes cuenta? <a href="{% url 'login' %}" class="font-medium text-blue-300 hover:text-blue-200">Inicia sesión</a>
+        </p>
+    </div>
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-slate-900 bg-opacity-90 py-8 px-4 shadow-lg sm:rounded-lg sm:px-10">
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="text-red-400 text-sm mb-2">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                <div>
+                    <label class="block text-sm font-medium text-gray-200">Nombre de usuario</label>
+                    <div class="mt-1">
+                        {% render_field form.username class="appearance-none relative block w-full px-3 py-2 border border-slate-700 rounded-md placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:z-10 focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Introduce tu nombre de usuario" %}
+                        {% if form.username.errors %}
+                            <span class="text-red-400 text-xs">{{ form.username.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-200">Correo electrónico</label>
+                    <div class="mt-1">
+                        {% render_field form.email class="appearance-none relative block w-full px-3 py-2 border border-slate-700 rounded-md placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:z-10 focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Introduce tu correo electrónico" %}
+                        {% if form.email.errors %}
+                            <span class="text-red-400 text-xs">{{ form.email.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-200">Contraseña</label>
+                    <div class="mt-1">
+                        {% render_field form.password1 class="appearance-none rounded-md relative block w-full px-3 py-2 border border-slate-700 placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Introduce tu contraseña" %}
+                        {% if form.password1.errors %}
+                            <span class="text-red-400 text-xs">{{ form.password1.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-200">Repite la contraseña</label>
+                    <div class="mt-1">
+                        {% render_field form.password2 class="appearance-none rounded-md relative block w-full px-3 py-2 border border-slate-700 placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Repite tu contraseña" %}
+                        {% if form.password2.errors %}
+                            <span class="text-red-400 text-xs">{{ form.password2.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                        Registrarse
+                    </button>
+                </div>
+            </form>
+            <div class="mt-6">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-slate-700"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-slate-900 text-gray-400">O regístrate con</span>
+                    </div>
+                </div>
+                <div class="mt-6 grid grid-cols-3 gap-3">
+                    <div>
+                        <a href="#"
+                            class="w-full flex items-center justify-center px-8 py-3 border border-slate-700 rounded-md shadow-sm text-sm font-medium text-gray-200 bg-slate-800 hover:bg-slate-700 transition">
+                            <img class="h-5 w-5" src="https://www.svgrepo.com/show/512120/facebook-176.svg"
+                                alt="Facebook">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#"
+                            class="w-full flex items-center justify-center px-8 py-3 border border-slate-700 rounded-md shadow-sm text-sm font-medium text-gray-200 bg-slate-800 hover:bg-slate-700 transition">
+                            <img class="h-5 w-5" src="https://www.svgrepo.com/show/513008/twitter-154.svg"
+                                alt="Twitter">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#"
+                            class="w-full flex items-center justify-center px-8 py-3 border border-slate-700 rounded-md shadow-sm text-sm font-medium text-gray-200 bg-slate-800 hover:bg-slate-700 transition">
+                            <img class="h-5 w-5" src="https://www.svgrepo.com/show/506498/google.svg"
+                                alt="Google">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
