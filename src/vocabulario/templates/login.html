@@ -1,6 +1,7 @@
 {% load static tailwind_tags %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
-<html lang="es" class="h-screen overflow-hidden">
+<html lang="es" class="h-screen">
 <head>
     <title>HSKBot</title>
     <meta charset="UTF-8">
@@ -8,11 +9,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?famil:ital,wght@0,300..900;1,300..900&display=swapy=Rubik" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     {% tailwind_preload_css %}
     {% tailwind_css %}
 </head>
-<body class="min-h-screen bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<body class="min-h-screen bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 flex flex-col justify-center py-12 sm:px-6 lg:px-8" style="font-family: 'Rubik', sans-serif;">
+    <a href="{% url 'inicio' %}" class="fixed top-4 left-4 z-50 flex items-center text-blue-300 hover:text-blue-100 transition text-sm font-mediu bg-opacity-90 px-3 py-2 rounded-lg">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver a inicio
+    </a>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 class="mt-6 text-center text-3xl font-extrabold text-white drop-shadow">Iniciar sesión</h2>
         <p class="mt-2 text-center text-sm text-gray-200 max-w">
@@ -21,24 +28,27 @@
     </div>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-slate-900 bg-opacity-90 py-8 px-4 shadow-lg sm:rounded-lg sm:px-10">
-            <form class="space-y-6" method="POST" action="#">
+            <form class="space-y-6" method="POST" action="">
                 {% csrf_token %}
+                {% if error %}
+                    <div class="text-red-400 text-sm mb-2">{{ error }}</div>
+                {% endif %}
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-200">Correo electrónico</label>
+                    <label for="id_email" class="block text-sm font-medium text-gray-200">Correo electrónico</label>
                     <div class="mt-1">
-                        <input id="email" name="email" type="email" autocomplete="email" required
-                            class="appearance-none relative block w-full px-3 py-2 border border-slate-700 rounded-md placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:z-10 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                            placeholder="Introduce tu correo electrónico">
+                        {% render_field form.email class="appearance-none relative block w-full px-3 py-2 border border-slate-700 rounded-md placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:z-10 focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Introduce tu correo electrónico" %}
+                        {% if form.email.errors %}
+                            <span class="text-red-400 text-xs">{{ form.email.errors.0 }}</span>
+                        {% endif %}
                     </div>
                 </div>
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-200">
-                        Contraseña
-                    </label>
+                    <label for="id_password" class="block text-sm font-medium text-gray-200">Contraseña</label>
                     <div class="mt-1">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required
-                            class="appearance-none rounded-md relative block w-full px-3 py-2 border border-slate-700 placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                            placeholder="Introduce tu contraseña">
+                        {% render_field form.password class="appearance-none rounded-md relative block w-full px-3 py-2 border border-slate-700 placeholder-gray-400 bg-slate-800 text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Introduce tu contraseña" %}
+                        {% if form.password.errors %}
+                            <span class="text-red-400 text-xs">{{ form.password.errors.0 }}</span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="flex items-center justify-between">

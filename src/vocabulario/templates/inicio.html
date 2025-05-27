@@ -1,10 +1,51 @@
 {% extends 'base.html' %}
+{% load static tailwind_tags %}
 
 {% block content %}
-<div class="h-screen flex items-center justify-center">
-  <div class="bg-blue-500 bg-opacity-80 rounded-xl shadow-lg p-10 w-full text-center">
-    <h1 class="text-4xl font-extrabold text-white mb-4 drop-shadow">Bienvenido a HSKBot</h1>
-    <p class="text-xl text-white mb-2">HSKBot es un chatbot diseñado para ayudarte a aprender vocabulario chino de manera interactiva y divertida.</p>
+<div class="w-full h-full flex flex-col items-center justify-center">
+  <div class="max-w-3xl w-full mx-auto rounded-2xl shadow-2xl bg-slate-900 bg-opacity-95 p-10 flex flex-col items-center">
+    <img src="{% static 'img/logo.png' %}" alt="HSKBot Logo" class="w-28 h-28 mb-6 rounded-full shadow-lg border-4 border-blue-400 bg-white object-cover">
+    <h1 class="text-5xl font-extrabold text-blue-300 mb-2 drop-shadow">¡Bienvenido a HSKBot!</h1>
+    <p class="text-lg text-blue-100 mb-8 text-center">Tu asistente para aprender vocabulario chino de forma interactiva y divertida.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-10">
+      <div class="bg-slate-800 rounded-lg p-6 flex flex-col items-center shadow border border-slate-700">
+        <span class="text-4xl mb-2">💬</span>
+        <h3 class="font-bold text-blue-200 mb-1">Chat Interactivo</h3>
+        <p class="text-sm text-blue-100 text-center">Practica vocabulario y frases en chino conversando con el bot.</p>
+      </div>
+      <div class="bg-slate-800 rounded-lg p-6 flex flex-col items-center shadow border border-slate-700">
+        <span class="text-4xl mb-2">📈</span>
+        <h3 class="font-bold text-blue-200 mb-1">Progreso Personalizado</h3>
+        <p class="text-sm text-blue-100 text-center">Sigue tu avance y repasa palabras según tu nivel HSK.</p>
+      </div>
+      <div class="bg-slate-800 rounded-lg p-6 flex flex-col items-center shadow border border-slate-700">
+        <span class="text-4xl mb-2">🎯</span>
+        <h3 class="font-bold text-blue-200 mb-1">Retos y Juegos</h3>
+        <p class="text-sm text-blue-100 text-center">Pon a prueba tus conocimientos con juegos y retos diarios.</p>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-4 w-full justify-center">
+      <a href="{% url 'chat' %}" class="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition text-lg text-center">
+        ¡Empezar a practicar!
+      </a>
+      <a href="{% url 'register' %}" class="px-8 py-3 bg-slate-800 text-blue-200 border border-blue-400 rounded-lg font-semibold shadow hover:bg-slate-700 transition text-lg text-center">
+        Crear cuenta nueva
+      </a>
+    </div>
+    <div class="mt-10 w-full flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-blue-300 text-xl">🌟</span>
+        <span class="text-blue-100">Más de 1000 palabras HSK</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-blue-300 text-xl">🔒</span>
+        <span class="text-blue-100">Progreso seguro y privado</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-blue-300 text-xl">🕒</span>
+        <span class="text-blue-100">Disponible 24/7</span>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

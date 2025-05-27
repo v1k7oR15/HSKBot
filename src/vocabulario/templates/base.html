@@ -13,7 +13,7 @@
     {% tailwind_preload_css %} 
     {% tailwind_css %}
 </head>
-<body class="leading-normal tracking-normal h-screen overflow-hidden">
+<body class="leading-normal tracking-normal h-screen overflow-hidden style="font-family: 'Rubik', sans-serif;">
     <div class="flex flex-col h-screen">
         <header class="flex items-center p-8 h-4 bg-slate-800 flex-shrink-0 shadow-md backdrop-blur text-white justify-between">
             <!-- Logo a la izquierda -->
@@ -21,17 +21,17 @@
                 <img src="{% static 'img/logo.png' %}" alt="Logo" class="w-16 h-16" />
             </div>
             <div class="flex items-center space-x-8">
-                <div class="flex items-center space-x-4 cursor-pointer">
+                <div class="flex items-center space-x-4">
                     {% if user.is_authenticated %}
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
                             <button type="submit" class="text-white hover:text-blue-300">
-                                <img src="{% static 'assets/svg/logout.svg' %}" alt="Logout Icon" class="w-8 h-8">
+                                <img src="{% static 'assets/svg/userwhite.svg' %}" alt="Logout Icon" class="cursor-pointer w-8 h-8">
                             </button>
                         </form>
                     {% else %}
                         <a href="{% url 'login' %}">
-                            <img src="{% static 'assets/svg/user.svg' %}" alt="User Icon" class="w-8 h-8 rounded-full">
+                            <img src="{% static 'assets/svg/userwhite.svg' %}" alt="User Icon" class="cursor-pointer w-8 h-8 rounded-full">
                         </a>
                     {% endif %}
                 </div>
