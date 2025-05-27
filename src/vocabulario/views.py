@@ -35,7 +35,7 @@ def register_view(request):
         form = RegistroForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login.html')  # Cambia 'login' por el nombre de tu url de login
+            return redirect('login')  # Cambia 'login' por el nombre de tu url de login
     else:
         form = RegistroForm()
     return render(request, 'register.html', {'form': form})

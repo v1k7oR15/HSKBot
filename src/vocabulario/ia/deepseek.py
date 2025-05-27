@@ -8,7 +8,7 @@ def ai_message(user_message):
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant"},
+            {"role": "system", "content": settings.PROMPT},
             {"role": "user", "content": user_message},
         ],
         stream=False
