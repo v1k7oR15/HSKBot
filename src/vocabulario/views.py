@@ -3,8 +3,10 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.contrib.auth import authenticate, login
 from .ia.deepseek import ai_message
-from .forms import RegistroForm, LoginForm
+from .forms import RegistroForm, LoginForm, PalabraForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from .models import Palabra
 
 def base_view(request):
     # Recupera el historial de la sesión o crea uno nuevo
@@ -64,3 +66,23 @@ def register_view(request):
     else:
         form = RegistroForm()
     return render(request, 'register.html', {'form': form})
+
+@login_required
+def palabra_view(request):
+    if request.method == 'POST':
+        form = PalabraForm(request.POST)
+        if form.is_valid():
+            vocabulario = Palabra(
+                palabra=form.cleaned_data['palabra'],
+                pinyin=form.cleaned_data['pinyin'],
+                traduccion=form.cleaned_data['traduccion'],
+                tipo=form.cleaned_data['tipo'],
+                nivel_hsk=form.cleaned_data.get('nivel_hsk', 1),
+                ejemplo=form.cleaned_data.get('ejemplo', ''),
+                usuario=request.user
+            )
+            vocabulario.save()
+            return redirect('palabra')
+    else:
+        form = PalabraForm()
+    return render(request, 'palabra.html', {'form': form})

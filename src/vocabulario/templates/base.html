@@ -10,10 +10,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?famil:ital,wght@0,300..900;1,300..900&display=swapy=Rubik" rel="stylesheet">
-    {% tailwind_preload_css %} 
+    {% tailwind_preload_css %}
     {% tailwind_css %}
 </head>
-<body class="leading-normal tracking-normal h-screen overflow-hidden style="font-family: 'Rubik', sans-serif;">
+<body class="leading-normal tracking-normal h-screen overflow-hidden" style="font-family: 'Rubik', sans-serif;">
     <div class="flex flex-col h-screen">
         <header class="flex items-center p-8 h-4 bg-slate-800 flex-shrink-0 shadow-md backdrop-blur text-white justify-between">
             <!-- Logo a la izquierda -->
@@ -31,7 +31,9 @@
                         </form>
                     {% else %}
                         <a href="{% url 'login' %}">
-                            <img src="{% static 'assets/svg/userwhite.svg' %}" alt="User Icon" class="cursor-pointer w-8 h-8 rounded-full">
+                            <button class="cursor-pointer flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition duration-150">
+                                Iniciar sesión
+                            </button>
                         </a>
                     {% endif %}
                 </div>
@@ -40,30 +42,54 @@
         <div class="flex flex-1 min-h-0">
             <aside class="w-1/6 bg-slate-900 p-4 flex-shrink-0 h-full overflow-y-auto">
                 <nav>
-                    <ul class="space-y-4 text-lg">
-                        <li><a href="{% url 'inicio' %}" class="text-white hover:text-blue-500">Inicio</a></li>
-                        <li><a href="{% url 'chat' %}" class="text-white hover:text-blue-500">Chat</a></li>
+                    <ul class="space-y-2 text-lg">
+                        <li>
+                            <a href="{% url 'inicio' %}"
+                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                               {% if request.resolver_match.url_name == 'inicio' %}
+                                   bg-blue-700/40 text-blue-300
+                               {% else %}
+                                   text-white hover:bg-blue-700/30 hover:text-blue-300
+                               {% endif %}">
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'inicio' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6" />
+                                </svg>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'chat' %}"
+                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                               {% if request.resolver_match.url_name == 'chat' %}
+                                   bg-blue-700/40 text-blue-300
+                               {% else %}
+                                   text-white hover:bg-blue-700/30 hover:text-blue-300
+                               {% endif %}">
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'chat' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
+                                </svg>
+                                Chat
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'palabra' %}"
+                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                               {% if request.resolver_match.url_name == 'palabra' %}
+                                   bg-blue-700/40 text-blue-300
+                               {% else %}
+                                   text-white hover:bg-blue-700/30 hover:text-blue-300
+                               {% endif %}">
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'palabra' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.5a2.121 2.121 0 113 3L7 19.5 3 21l1.5-4L16.5 3.5z" />
+                                </svg>
+                                Añadir palabra
+                            </a>
+                        </li>
                     </ul>
                 </nav>
-				<div class="mt-8">
-					<h2 class="text-white text-2xl mb-2">Filtro</h2>
-                    <!-- Primera lista seleccionable -->
-                    <select id="categoria" name="categoria" class="w-full p-2 rounded bg-sky-600 text-white">
-                        <option value="">Categoría</option>
-                        <option value="animales">Animales</option>
-                        <option value="colores">Colores</option>
-                        <option value="comida">Comida</option>
-                    </select>
-                    <!-- Segunda lista seleccionable -->
-                    <select id="nivel" name="nivel" class="w-full p-2 rounded bg-sky-600 text-white mt-4">
-                        <option value="">Nivel</option>
-                        <option value="basico">Básico</option>
-                        <option value="intermedio">Intermedio</option>
-                        <option value="avanzado">Avanzado</option>
-                    </select>
-                </div>
             </aside>
-            <main class="flex flex-col items-center justify-center flex-1 bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 p-10 min-h-0 overflow-y-auto">
+            <main class="flex flex-col items-center justify-center flex-1 bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 overflow-y-auto">
                 {% block content %}{% endblock %}
             </main>
         </div>

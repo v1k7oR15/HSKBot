@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="w-3xl mx-auto mt-10 bg-slate-900 bg-opacity-90 p-8 rounded-xl shadow-lg">
+    <h2 class="text-2xl font-bold text-blue-200 mb-6 text-center">Añadir nueva palabra</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        {% if error %}
+            <div class="text-red-400 text-sm mb-2">{{ error }}</div>
+        {% endif %}
+        <div class="mb-4">
+            <label for="{{ form.palabra.id_for_label }}" class="block text-blue-100 mb-1">Palabra en chino</label>
+            {% render_field form.palabra class="w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" %}
+            {% if form.palabra.errors %}
+                <div class="text-red-400 text-xs">{{ form.palabra.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.pinyin.id_for_label }}" class="block text-blue-100 mb-1">Pinyin</label>
+            {% render_field form.pinyin class="w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" %}
+            {% if form.pinyin.errors %}
+                <div class="text-red-400 text-xs">{{ form.pinyin.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.traduccion.id_for_label }}" class="block text-blue-100 mb-1">Traducción</label>
+            {% render_field form.traduccion class="w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" %}
+            {% if form.traduccion.errors %}
+                <div class="text-red-400 text-xs">{{ form.traduccion.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.tipo.id_for_label }}" class="block text-blue-100 mb-1">Tipo</label>
+            {% render_field form.tipo class="w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" %}
+            {% if form.tipo.errors %}
+                <div class="text-red-400 text-xs">{{ form.tipo.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.nivel_hsk.id_for_label }}" class="block text-blue-100 mb-1">Nivel HSK</label>
+            {% render_field form.nivel_hsk class="w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" %}
+            {% if form.nivel_hsk.errors %}
+                <div class="text-red-400 text-xs">{{ form.nivel_hsk.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.ejemplo.id_for_label }}" class="block text-blue-100 mb-1">Ejemplo de uso</label>
+            {% render_field form.ejemplo class="w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" rows="2" %}
+            {% if form.ejemplo.errors %}
+                <div class="text-red-400 text-xs">{{ form.ejemplo.errors.0 }}</div>
+            {% endif %}
+        </div>
+        <div class="flex justify-center">
+            <button type="submit"
+                class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
+                Guardar palabra
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
