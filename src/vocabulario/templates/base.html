@@ -1,7 +1,7 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <script src="{% static 'js/chat.js' %}"></script>
-<html lang="es" class="h-screen overflow-hidden">
+<html lang="es" class="min-h-screen">
 <head>
     <title>HSKBot</title>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     {% tailwind_preload_css %}
     {% tailwind_css %}
 </head>
-<body class="leading-normal tracking-normal h-screen overflow-hidden" style="font-family: 'Rubik', sans-serif;">
+<body class="leading-normal tracking-normal min-h-screen" style="font-family: 'Rubik', sans-serif;">
     <div class="flex flex-col h-screen">
         <header class="flex items-center p-8 h-4 bg-slate-800 flex-shrink-0 shadow-md backdrop-blur text-white justify-between">
             <!-- Logo a la izquierda -->
@@ -80,16 +80,32 @@
                                    text-white hover:bg-blue-700/30 hover:text-blue-300
                                {% endif %}">
                                 <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'palabra' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.5a2.121 2.121 0 113 3L7 19.5 3 21l1.5-4L16.5 3.5z" />
+                                  <circle cx="12" cy="12" r="9" class="fill-slate-800"/>
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8M8 12h8" />
                                 </svg>
                                 Añadir palabra
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'mostrar_palabras' %}"
+                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                               {% if request.resolver_match.url_name == 'mostrar_palabras' %}
+                                   bg-blue-700/40 text-blue-300
+                               {% else %}
+                                   text-white hover:bg-blue-700/30 hover:text-blue-300
+                               {% endif %}">
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'mostrar_palabras' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                  <rect x="3" y="5" width="7" height="14" rx="2" class="fill-slate-800" />
+                                  <rect x="14" y="5" width="7" height="14" rx="2" class="fill-slate-800" />
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h7M14 7h7M3 17h7M14 17h7" />
+                                </svg>
+                                Ver palabras
                             </a>
                         </li>
                     </ul>
                 </nav>
             </aside>
-            <main class="flex flex-col items-center justify-center flex-1 bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 overflow-y-auto">
+            <main class="flex flex-col items-center flex-1 bg-gradient-to-r from-slate-900 via-indigo-800 to-blue-700 overflow-y-auto">
                 {% block content %}{% endblock %}
             </main>
         </div>

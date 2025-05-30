@@ -7,6 +7,9 @@ from .forms import RegistroForm, LoginForm, PalabraForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Palabra
+from .tables import PalabraTable
+from .filter import PalabraFilter
+from django.db import IntegrityError
 
 def base_view(request):
     # Recupera el historial de la sesión o crea uno nuevo
@@ -69,20 +72,47 @@ def register_view(request):
 
 @login_required
 def palabra_view(request):
+    error = None
     if request.method == 'POST':
         form = PalabraForm(request.POST)
         if form.is_valid():
-            vocabulario = Palabra(
-                palabra=form.cleaned_data['palabra'],
-                pinyin=form.cleaned_data['pinyin'],
-                traduccion=form.cleaned_data['traduccion'],
-                tipo=form.cleaned_data['tipo'],
-                nivel_hsk=form.cleaned_data.get('nivel_hsk', 1),
-                ejemplo=form.cleaned_data.get('ejemplo', ''),
+            datos = form.cleaned_data
+            existe = Palabra.objects.filter(
+                palabra=datos['palabra'],
+                pinyin=datos['pinyin'],
+                tipo=datos['tipo'],
+                nivel_hsk=datos.get('nivel_hsk', 1),
                 usuario=request.user
-            )
-            vocabulario.save()
-            return redirect('palabra')
+            ).exists()
+            if existe:
+                error = "¡Esa palabra ya existe con esos datos!"
+            else:
+                try:
+                    Palabra.objects.create(
+                        palabra=datos['palabra'],
+                        pinyin=datos['pinyin'],
+                        traduccion=datos['traduccion'],
+                        tipo=datos['tipo'],
+                        nivel_hsk=datos.get('nivel_hsk', 1),
+                        ejemplo=datos.get('ejemplo', ''),
+                        usuario=request.user
+                    )
+                    return redirect('palabra')
+                except IntegrityError:
+                    error = "¡Esa palabra ya existe!"
     else:
         form = PalabraForm()
-    return render(request, 'palabra.html', {'form': form})
+
+    return render(request, 'palabra.html', {
+        'form': form,
+        'error': error
+    })
+
+@login_required
+def mostrar_palabras_view(request):
+    table = PalabraTable(Palabra.objects.filter(usuario=request.user))
+    return render(request, 'mostrar_palabras.html', {
+        'table': table,
+        'user': request.user,
+        'filter': PalabraFilter(request.GET, queryset=Palabra.objects.filter(usuario=request.user)),
+    })

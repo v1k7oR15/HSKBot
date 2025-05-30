@@ -17,14 +17,14 @@ class Palabra(models.Model):
     )
     palabra = models.CharField("Vocabulario en chino", max_length=10, db_index=True)
     pinyin = models.CharField(max_length=10)
-    traduccion = models.CharField(max_length=100)
+    traduccion = models.CharField(max_length=200)
     tipo = models.CharField(max_length=2, choices=TIPO_CHOICES, db_index=True)
     nivel_hsk = models.SmallIntegerField(default=1, null=True, blank=True ,db_index=True)
     ejemplo = models.TextField(blank=True, null=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='vocabulario')
 
     class Meta:
-        unique_together = ('palabra', 'usuario')
+        unique_together = ('palabra', 'pinyin', 'tipo', 'nivel_hsk', 'usuario')
         ordering = ['nivel_hsk', 'tipo', 'palabra']
 
     def __str__(self):
