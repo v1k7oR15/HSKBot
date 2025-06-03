@@ -1,11 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('chat-form');
     const input = form.querySelector('input[name="mensaje"]');
     const button = form.querySelector('button[type="submit"]');
     const chatMessages = document.getElementById('chat-Messages');
 
-    form.addEventListener('submit', function(e) {
+
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
+        const noMessages = document.getElementById('no-messages');
+        if (noMessages) {
+            noMessages.remove();
+        }
 
         // Deshabilita el input y el botón
         input.disabled = true;
@@ -38,16 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: new URLSearchParams({'mensaje': mensaje})
+            body: new URLSearchParams({ 'mensaje': mensaje })
         })
-        .then(response => response.json())
-        .then(data => {
-            chatMessages.innerHTML = data.html;
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            // Habilita el input y el botón
-            input.disabled = false;
-            button.disabled = false;
-            input.focus();
-        });
+            .then(response => response.json())
+            .then(data => {
+                chatMessages.innerHTML = data.html;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                // Habilita el input y el botón
+                input.disabled = false;
+                button.disabled = false;
+                input.focus();
+            });
     });
 });
