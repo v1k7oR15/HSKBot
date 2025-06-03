@@ -9,9 +9,14 @@
         <div class="p-10">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-xl font-bold text-blue-200">Lista de palabras</h2>
-                <a href="{% url 'palabra' %}" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
-                    Añadir palabra
-                </a>
+                <div class="flex gap-x-4">
+                    <a href="{% url 'palabra' %}" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
+                        Añadir palabra
+                    </a>
+                    <a href="{% url 'exportar_palabras' %}" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold shadow transition">
+                        Exportar
+                    </a>
+                </div>
             </div>
             {% render_table table %}
         </div>
