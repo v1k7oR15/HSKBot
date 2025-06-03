@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.contrib.auth import authenticate, login
 from .ia.deepseek import ai_message
+from django.http import HttpResponse
 from .forms import RegistroForm, LoginForm, PalabraForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -10,6 +11,13 @@ from .models import Palabra
 from .tables import PalabraTable
 from .filter import PalabraFilter
 from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
+import django_tables2 as tables
+import openpyxl
+from openpyxl.styles import PatternFill, Font, Alignment
+from openpyxl.utils import get_column_letter
+from .models import Palabra
+
 
 def base_view(request):
     # Recupera el historial de la sesión o crea uno nuevo
@@ -110,9 +118,31 @@ def palabra_view(request):
 
 @login_required
 def mostrar_palabras_view(request):
-    table = PalabraTable(Palabra.objects.filter(usuario=request.user))
+    palabra_filter = PalabraFilter(request.GET, queryset=Palabra.objects.filter(usuario=request.user))
+    table = PalabraTable(palabra_filter.qs)
+    tables.RequestConfig(request, paginate={"per_page": 10}).configure(table)
     return render(request, 'mostrar_palabras.html', {
         'table': table,
         'user': request.user,
         'filter': PalabraFilter(request.GET, queryset=Palabra.objects.filter(usuario=request.user)),
+    })
+
+def eliminar_palabra_view(request, pk):
+    palabra = get_object_or_404(Palabra, pk=pk, usuario=request.user)
+    palabra.delete()
+    return redirect('mostrar_palabras')
+
+def editar_palabra_view(request, pk):
+    palabra = get_object_or_404(Palabra, pk=pk, usuario=request.user)
+    if request.method == 'POST':
+        form = PalabraForm(request.POST, instance=palabra)
+        if form.is_valid():
+            form.save()
+            return redirect('mostrar_palabras')
+    else:
+        form = PalabraForm(instance=palabra)
+
+    return render(request, 'palabra.html', {
+        'form': form,
+        'editar': True,
     })

@@ -1,5 +1,7 @@
 {% load static tailwind_tags %}
 {% load widget_tweaks %}
+{% load socialaccount %}
+
 <!DOCTYPE html>
 <html lang="es" class="h-screen">
 <head>
@@ -97,7 +99,7 @@
                         </a>
                     </div>
                     <div>
-                        <a href="#"
+                        <a href="{% provider_login_url 'google' %}"
                             class="w-full flex items-center justify-center px-8 py-3 border border-slate-700 rounded-md shadow-sm text-sm font-medium text-gray-200 bg-slate-800 hover:bg-slate-700">
                             <img class="h-5 w-5" src="https://www.svgrepo.com/show/506498/google.svg"
                                 alt="Google">

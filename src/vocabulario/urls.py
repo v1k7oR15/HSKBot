@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import base_view, chat_view, login_view, register_view, palabra_view, mostrar_palabras_view
+from .views import base_view, chat_view, login_view, register_view, palabra_view, mostrar_palabras_view, eliminar_palabra_view, editar_palabra_view
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -9,5 +9,7 @@ urlpatterns = [
     path('register/', register_view, name='register'),
     path('logout/', LogoutView.as_view(next_page='inicio'), name='logout'),
     path('palabra/', palabra_view, name='palabra'),
-    path('mostrar_palabras', mostrar_palabras_view, name='mostrar_palabras'),
+    path('mostrar_palabras/', mostrar_palabras_view, name='mostrar_palabras'),
+    path('palabra/eliminar/<int:pk>/', eliminar_palabra_view, name='eliminar_palabra'),
+    path('palabra/editar/<int:pk>/', editar_palabra_view, name='editar_palabra')
 ]
