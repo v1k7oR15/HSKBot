@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         const noMessages = document.getElementById('no-messages');
-        if (noMessages) {
-            noMessages.remove();
-        }
+        noMessages.remove();
 
         // Deshabilita el input y el botón
         input.disabled = true;

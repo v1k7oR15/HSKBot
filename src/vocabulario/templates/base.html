@@ -1,24 +1,29 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<script src="{% static 'js/chat.js' %}"></script>
 <html lang="es" class="min-h-screen">
 <head>
     <title>HSKBot</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?famil:ital,wght@0,300..900;1,300..900&display=swapy=Rubik" rel="stylesheet">
     {% tailwind_preload_css %}
     {% tailwind_css %}
+    <script src="{% static 'js/chat.js' %}"></script>
 </head>
 <body class="leading-normal tracking-normal min-h-screen" style="font-family: 'Rubik', sans-serif;">
     <div class="flex flex-col h-screen">
-        <header class="flex items-center p-8 h-4 bg-slate-800 flex-shrink-0 shadow-md backdrop-blur text-white justify-between">
-            <!-- Logo a la izquierda -->
-            <div>
-                <img src="{% static 'img/logo.png' %}" alt="Logo" class="w-16 h-16" />
+        <header class="flex items-center justify-between md:justify-between p-4 md:p-8 h-4 bg-slate-800 flex-shrink-0 shadow-md backdrop-blur text-white relative">
+            <!-- Botón menú hamburguesa solo en móvil -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-2 top-1/2 -translate-y-1/2">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <div class="flex-1 flex justify-center md:justify-start">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" class="w-12 h-12 md:w-16 md:h-16" />
             </div>
             <div class="flex items-center space-x-8">
                 <div class="flex items-center space-x-4">
@@ -39,8 +44,13 @@
                 </div>
             </div>
         </header>
-        <div class="flex flex-1 min-h-0">
-            <aside class="w-1/6 bg-slate-900 p-4 flex-shrink-0 h-full overflow-y-auto">
+        <div class="flex flex-1 min-h-0 relative">
+            <!-- Overlay oscuro -->
+            <div id="menu-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-10 z-40 hidden md:hidden"></div>
+            <!-- Aside: menú lateral -->
+            <aside id="sidebar"
+                class="fixed z-50 top-0 left-0 h-full w-64 bg-slate-900 p-4 transform -translate-x-full transition-transform duration-200 ease-in-out
+                       md:static md:translate-x-0 md:w-1/6 md:block md:z-0">
                 <nav>
                     <ul class="space-y-2 text-lg">
                         <li>
@@ -110,5 +120,6 @@
             </main>
         </div>
     </div>
+    <script src="{% static 'js/menu.js' %}"></script>
 </body>
 </html>
