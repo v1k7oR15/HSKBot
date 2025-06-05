@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Palabra, Tipo
 
 class RegistroForm(forms.ModelForm):
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
@@ -27,21 +28,18 @@ class LoginForm(forms.Form):
     email = forms.EmailField(label='Correo electrónico')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
 
-class PalabraForm(forms.Form):
+class PalabraForm(forms.ModelForm):
     palabra = forms.CharField(label='Vocabulario en chino', max_length=10)
     pinyin = forms.CharField(label='Pinyin', max_length=10)
     traduccion = forms.CharField(label='Traducción', max_length=100)
-    tipo = forms.ChoiceField(label='Tipo', choices=[
-        ('S', 'Sustantivo'),
-        ('V', 'Verbo'),
-        ('A', 'Adjetivo'),
-        ('AD', 'Adverbio'),
-        ('P', 'Pronombre'),
-        ('C', 'Conjunción'),
-        ('I', 'Interjección'),
-        ('D', 'Determinante'),
-        ('N', 'Numeral'),
-        ('O', 'Otro'),
-    ])
+    tipo = forms.ModelChoiceField(
+        label='Tipo',
+        queryset=Tipo.objects.all(),
+        empty_label="Selecciona un tipo"
+    )
     nivel_hsk = forms.IntegerField(label='Nivel HSK', min_value=1, max_value=6, required=False)
     ejemplo = forms.CharField(label='Ejemplo', widget=forms.Textarea, required=False)
+
+    class Meta:
+        model = Palabra
+        fields = ['palabra', 'pinyin', 'traduccion', 'tipo', 'nivel_hsk', 'ejemplo']

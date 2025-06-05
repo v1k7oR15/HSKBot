@@ -4,7 +4,9 @@
 
 {% block content %}
 <div class="w-3xl mx-auto mt-10 bg-slate-900 bg-opacity-90 p-8 rounded-xl shadow-lg">
-    <h2 class="text-2xl font-bold text-blue-200 mb-6 text-center">Añadir nueva palabra</h2>
+    <h2 class="normal-case text-2xl font-bold text-blue-200 mb-6 text-center">
+        {% if editar %}Editar palabra{% else %}Añadir nueva palabra{% endif %}
+    </h2>
     <form method="post" action="">
         {% csrf_token %}
         {% if error %}
@@ -54,7 +56,7 @@
         </div>
         <div class="flex justify-center">
             <button type="submit"
-                class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
+                class="cursor-pointer px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
                 Guardar palabra
             </button>
         </div>

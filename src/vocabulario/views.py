@@ -3,13 +3,21 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.contrib.auth import authenticate, login
 from .ia.deepseek import ai_message
+from django.http import HttpResponse
 from .forms import RegistroForm, LoginForm, PalabraForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Palabra
+from .models import Palabra, Tipo
 from .tables import PalabraTable
 from .filter import PalabraFilter
 from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
+import django_tables2 as tables
+import openpyxl
+from openpyxl.styles import PatternFill, Font, Alignment
+from openpyxl.utils import get_column_letter
+from .models import Palabra
+
 
 def base_view(request):
     # Recupera el historial de la sesión o crea uno nuevo
@@ -110,9 +118,81 @@ def palabra_view(request):
 
 @login_required
 def mostrar_palabras_view(request):
-    table = PalabraTable(Palabra.objects.filter(usuario=request.user))
+    palabra_filter = PalabraFilter(request.GET, queryset=Palabra.objects.filter(usuario=request.user))
+    table = PalabraTable(palabra_filter.qs)
+    tables.RequestConfig(request, paginate={"per_page": 10}).configure(table)
     return render(request, 'mostrar_palabras.html', {
         'table': table,
         'user': request.user,
         'filter': PalabraFilter(request.GET, queryset=Palabra.objects.filter(usuario=request.user)),
     })
+
+def eliminar_palabra_view(request, pk):
+    palabra = get_object_or_404(Palabra, pk=pk, usuario=request.user)
+    palabra.delete()
+    return redirect('mostrar_palabras')
+
+def editar_palabra_view(request, pk):
+    palabra = get_object_or_404(Palabra, pk=pk, usuario=request.user)
+    if request.method == 'POST':
+        form = PalabraForm(request.POST, instance=palabra)
+        if form.is_valid():
+            form.save()
+            return redirect('mostrar_palabras')
+    else:
+        form = PalabraForm(instance=palabra)
+
+    return render(request, 'palabra.html', {
+        'form': form,
+        'editar': True,
+    })
+
+def exportar_palabras_excel(request):
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Palabras"
+
+    headers = ['Carácter', 'Pinyin', 'Traducción', 'Nivel HSK', 'Ejemplo']
+    ws.append(headers)
+    for col in range(1, len(headers) + 1):
+        ws.cell(row=1, column=col).font = Font(bold=True)
+        ws.cell(row=1, column=col).fill = PatternFill(start_color="1976D2", end_color="1976D2", fill_type="solid")
+        ws.cell(row=1, column=col).alignment = Alignment(horizontal="center")
+
+    row_num = 2
+    palabras = Palabra.objects.filter(usuario=request.user).select_related('tipo').order_by('tipo__nombre', 'palabra')
+    tipos = Tipo.objects.all().order_by('nombre')
+
+    for tipo in tipos:
+        grupo = palabras.filter(tipo=tipo)
+        if grupo.exists():
+            ws.merge_cells(start_row=row_num, start_column=1, end_row=row_num, end_column=len(headers))
+            cell = ws.cell(row=row_num, column=1)
+            cell.value = tipo.nombre
+            cell.font = Font(bold=True, color="000000")
+            cell.fill = PatternFill(start_color=tipo.color.replace('#', ''), end_color=tipo.color.replace('#', ''), fill_type="solid")
+            cell.alignment = Alignment(horizontal="center")
+            row_num += 1
+
+            for palabra in grupo:
+                ws.append([
+                    palabra.palabra,
+                    palabra.pinyin,
+                    palabra.traduccion,
+                    palabra.nivel_hsk,
+                    palabra.ejemplo or ''
+                ])
+                for col in range(1, len(headers) + 1):
+                    ws.cell(row=row_num, column=col).fill = PatternFill(start_color="FFFDE7", end_color="FFFDE7", fill_type="solid")
+                row_num += 1
+
+    # Ajustar ancho de columnas
+    for i, col in enumerate(headers, 1):
+        ws.column_dimensions[get_column_letter(i)].width = 18
+
+    response = HttpResponse(
+        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
+    response['Content-Disposition'] = 'attachment; filename=palabras_agrupadas.xlsx'
+    wb.save(response)
+    return response
