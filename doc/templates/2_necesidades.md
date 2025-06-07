@@ -1,147 +1,142 @@
 # ESTUDO DE NECESIDADES E MODELO DE NEGOCIO
 
-## Xustificación das necesidades detectadas que cobre o sistema a desenvolver
+## Xustificación das necesidades detectadas que cubre o sistema a desenvolver
+1.	Describe o problema ou a necesidade.
 
-Os estudantes de chinés, especialmente nos primeiros niveis de HSK, enfróntanse á falta de ferramentas flexibles que lles permitan organizar, clasificar e estudar vocabulario de forma personalizada. As listas oficiais adoitan presentarse en PDF ou noutros formatos ríxidos, sen opcións de filtrado, clasificación por categorías gramaticais nin integración con exemplos dinámicos. Esta situación dificulta unha aprendizaxe ordenada e eficiente.
+Os estudantes de chinés, especialmente nos primeiros niveis de HSK, non dispoñen de ferramentas flexibles para organizar, clasificar e estudar vocabulario de forma personalizada. As listas oficiais adoitan vir en PDF ou formatos ríxidos, sen opción de filtrado, clasificación por categorías gramaticais ou integración con exemplos dinámicos. Isto fai que a aprendizaxe sexa máis desordenada e menos eficiente.
 
-O desenvolvemento dun sistema que resolva esta carencia suporía un avance importante no ámbito do ensino de idiomas. A ferramenta proposta facilitaría a personalización da aprendizaxe, melloraría a retención de vocabulario e abriría a porta a funcionalidades innovadoras como a integración con intelixencia artificial para a xeración de exercicios, exemplos e traducións automáticas.
+2.	Por que é necesaria a posta en marcha dun proxecto que aborde dita necesidade?
 
-O obxectivo xeral do proxecto é crear unha aplicación funcional que permita aos estudantes organizar, clasificar e practicar vocabulario chinés dun xeito eficiente, personalizado e apoiado en tecnoloxías modernas como a IA.
+Porque resolvería unha carencia concreta no ámbito do estudo de idiomas, ofrecendo unha ferramenta útil tanto para estudantes individuais como para academias. Unha aplicación así permitiría personalizar a aprendizaxe, mellorar a retención de vocabulario e abriría a porta a funcionalidades innovadoras como a integración con IA para xerar exercicios, exemplos e traducións automáticas.
 
----
+3.	Cal é o obxectivo xeral que persegue o proxecto?
 
-### Forma de resposta á necesidade
+O obxectivo xeral é desenvolver unha aplicación funcional que permita aos estudantes organizar, clasificar e practicar vocabulario chinés dun xeito eficiente, personalizado e apoiado en tecnoloxía moderna como a intelixencia artificial.
 
-Desenvolverase unha aplicación web que centralice o vocabulario por niveis e categorías, permita un filtrado avanzado e ofreza soporte de IA para cubrir lagoas de contido como o pinyin, exemplos contextualizados ou exercicios adaptativos.
+4.	Responde a estas preguntas concretas:
 
----
+    4.1.Como se pode responder a esta necesidade? 
+    
+    Creando unha aplicación que centralice o vocabulario por niveis e categorías, permita filtrado avanzado, e ofreza apoio da IA para cubrir lagoas de contido (como pinyin, exemplos ou exercicios).
 
-### Accións para cambiar a situación actual
+    4.2. Que pode facerse para cambiar este estado de cousas? 
 
-A solución pasa por crear unha ferramenta flexible, accesible e adaptable ás necesidades individuais dos estudantes, superando as limitacións das listas estáticas e dos materiais tradicionais mediante funcionalidades interactivas e personalizables.
+    Desenvolver unha ferramenta flexible, accesible e adaptable ás necesidades do estudante, superando as limitacións das listas estáticas e dos materiais tradicionais.
+    
+    4.3. Como podemos contribuír desde a nosa situación a que o problema se resolva?
 
----
+    Aplicando os coñecementos adquiridos no ciclo DAM (programación, bases de datos, interfaces gráficas) para crear unha aplicación que dea resposta real ás necesidades detectadas.
+    
+    4.4. Que medios, actividades e recursos van poñer en xogo? 
 
-### Contribución dende a nosa situación
+    -Ordenador persoal con entorno Python instalado.
 
-Como estudantes do ciclo DAM, aplicaranse os coñecementos adquiridos en programación, bases de datos e deseño de interfaces para desenvolver unha aplicación que dea resposta real ás necesidades detectadas no proceso de aprendizaxe do chinés.
+    -API de DeepSeek para integración con IA.
 
----
+    -Base de datos SQLite para xestionar a información.
 
-### Medios, actividades e recursos dispoñibles
+    -Bibliotecas como CustomTkinter e openpyxl.
 
-- Ordenador persoal con acceso a internet.
-- Entorno de desenvolvemento en Python e Django.
-- Base de datos SQLite para xestión da información.
-- Frameworks como Tailwind CSS para deseño visual.
-- Biblioteca `openpyxl` para exportación de datos a Excel.
-- API de DeepSeek para integración con funcionalidades de IA.
-- Actividades previstas: deseño, programación, probas e documentación.
+    -Actividades de deseño, programación, probas e documentación.
+    
+    4.5. Que actividades se van realizar?
 
----
+    -Deseño da base de datos e modelo de datos.
+    -Programación da interfaz gráfica.
+    -Integración co API da IA.
+    -Implementación das funcións de filtrado e exportación.
+    -Probado de funcionalidades e corrección de erros.
+    -Documentación do proxecto e elaboración do entregable.
+    
+    4.6. Que metodoloxía se vai empregar para levar a cabo o traballo?
 
-### Actividades previstas
+    Metodoloxía iterativa, centrada en ciclos curtos de deseño → desenvolvemento → proba, que permitan axustar as funcionalidades segundo se vaia avanzando no proxecto, garantizando que a versión entregable funcione correctamente antes de engadir melloras.
+    
+    4.7. Que persoas serían precisas para realizar o proxecto con éxito? 
+    
+    -Nun contexto persoal, só eu como desenvolvedor. Nunha versión profesional, sería recomendable contar con:
+    -Desenvolvedor backend
+    -Deseñador UI/UX
+    -Especialista en IA/ML
+    -Persoa de contidos académicos para deseño de exercicios
 
-- Deseño do modelo de datos e base de datos.
-- Desenvolvemento da interface gráfica web con Tailwind e Django.
-- Integración co API de IA.
-- Implementación das funcións de filtrado, visualización e exportación.
-- Probas de usabilidade e corrección de erros.
-- Documentación técnica e elaboración do entregable final.
+    4.8 Con canto tempo se conta? 
+    
+    Conto co tempo establecido polo calendario do proxecto de fin de ciclo, aproximadamente uns 2 meses de traballo efectivo.
 
----
+    4.9 Canto tempo se necesita?
 
-### Metodoloxía de traballo
+    Para o entregable funcional, estimo unhas 40-50 horas distribuídas en análise, deseño, desenvolvemento, probas e documentación. Unha versión máis completa e pulida podería requirir máis tempo, especialmente se se decide levala á web ou incluír máis funcionalidades.
 
-Empregarase unha metodoloxía iterativa, con ciclos curtos de deseño → desenvolvemento → proba. Isto permitirá realizar axustes progresivos, garantindo que cada versión funcional sexa estable antes de engadir novas funcionalidades.
 
----
 
-##3 Persoas necesarias
+## Posibilidades de comercialización (viabilidade, competidores…).
+1.	Viabilidade.
 
-Nun contexto académico, o proxecto pode ser desenvolvido por unha soa persoa. Para unha versión profesional sería recomendable contar cun equipo composto por:
+    1.1	Viabilidade técnica.
+    
+        1.1.a) Será posible dispoñer dos recursos humanos e medios de produción necesarios (materias primas, maquinaria, instalacións…)?
 
-- Desenvolvedor backend (API, bases de datos)
-- Deseñador UI/UX
-- Especialista en IA/ML
-- Experto en contidos educativos (para deseño de exercicios)
+        O proxecto pode ser desenvolvido inicialmente por unha única persoa cun ordenador persoal e conexión a internet. As ferramentas principais (Python, SQLite, CustomTkinter, openpyxl) son de código aberto, e a integración con IA require unicamente o acceso á API de DeepSeek, que para uso personal podese conseguir de maneira gratuíta.
+        
+        1.1.b) Existe algún impedimento técnico que dificulte o proceso produtivo?
+        Non hai impedimentos técnicos graves. O principal reto será o control dos custos da API se o número de usuarios medra, pero inicialmente o uso está pensado para ser local/persoal polo que non existe ese problema
+        
+    1.2	Viabilidade económica
+    
+        1.2.a) Os beneficios do proyecto son superiores aos costes?
+        
+        Si, a longo prazo. O proxecto é viable porque, unha vez desenvolvido, os custos principais virán do mantemento da infraestrutura (no caso dunha versión web) e do pago pola API de IA, que pode cubrirse mediante modelos de subscrición ou pagos premium. O desenvolvemento inicial require só tempo e coñecemento, sen investimento material importante. Probablemente, para manter os beneficios habería que poñer un límite ao uso da API dependendo do tipo de subscripción
 
----
+        1.2.b) As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
 
-### Tempo dispoñible e estimación
+        Probablemente non, descoñezo os requerimentos para estas subvencións pero non creo que este proxecto cumpla os requerimentos.
 
-Contando co calendario do proxecto de fin de ciclo, disponse de aproximadamente dous meses de traballo efectivo. Estímase que serán necesarias unhas 40-50 horas para o desenvolvemento da versión funcional. Unha versión máis completa podería requirir máis tempo.
+        
+2.	Competencia.
 
----
+    2.1. Identificación da competencia, as súas características e a súa posición no mercado.
 
-## Estudo de viabilidade e competencia
+    Existen aplicacións como Pleco, HelloChinese ou Anki que permiten estudar chinés, pero ningunha combina especificamente:
+    -Organización personalizada de vocabulario por nivel e tipo gramatical
+    -Integración flexible cun asistente IA para explicar, traducir e xerar exercicios
+    -Exportación visual ordenada para estudo externo (como Excel personalizado)
+    -Estes competidores están moi ben posicionados no mercado global, pero o nicho específico do proxecto ofrece diferenciación clara.
 
-### Viabilidade técnica
+    2.2. Existencia de productos/servizos substitutivos.
 
-O proxecto é tecnicamente viable con recursos mínimos. Pode ser desenvolvido por unha soa persoa cun ordenador persoal. As ferramentas empregadas son de código aberto, e o acceso á API de IA (DeepSeek) é gratuito para uso persoal. Non se detectan impedimentos técnicos graves, aínda que se deberá controlar o custo da API no caso de escalado da aplicación.
+    Si, os usuarios poden usar actualmente:
+    -PDFs oficiais de vocabulario (de xeito manual)
+    -Apps de flashcards (Anki)
+    -Diccionarios online (Pleco)
 
----
+    Pero estes non permiten a mesma personalización, organización e apoio dinámico de IA, o que dá unha vantaxe competitiva ao proxecto.
 
-### Viabilidade económica
+## Ideas para a súa comercialización.
+1.	Promoción.
 
-Os beneficios potenciais do proxecto son superiores aos custos iniciais, xa que o desenvolvemento require principalmente tempo e coñecemento. Os custos futuros virán da infraestrutura (servidor web) e do uso da API. Estes poderían cubrirse mediante subscricións ou funcionalidades premium. Non se conta con subvencións públicas de momento.
+    1.1.	Técnicas elixidas (redes sociais, plataformas multimedia, páxina web, posicionamento web SEO, patrocinios, participación en eventos, prácticas de responsabilidade social corporativa, outras).
 
----
+    Redes sociais (Instagram, TikTok, Twitter/X) para chegar a estudantes novos
 
-### Competencia
+    -Páxina web con presentación do produto, capturas e acceso á descarga/demo
+    -Posicionamento web SEO para termos como “aprender chinés”, “organizar vocabulario HSK”
+    -Participación en comunidades online (Discords, foros de estudantes de chinés)
+    -Posible colaboración con academias ou profesores de chinés para difusión
+    
+    1.2.	Xustifica a elección.
+    
+    Redes sociais e SEO permiten baixo custo e alta difusión orgánica, chegando directamente ao público obxectivo (estudantes autodidactas, alumnos de escolas, curiosos de linguas). Colaborar con profesionais do ensino de chinés daría credibilidade e visibilidade.
+    
+2.	Modelo de negocio.
 
-Entre os competidores destacan:
+    2.1.Modelo elixido (Modelo de pago / Freemium (é de balde pero as funcionalidades extras son de pago) / In house (desenvolvementos a medida para contornos empresariais / De subscrición / Por publicidade / Outros)
+    
+    Modelo Freemium + Subscrición.
 
-- **Pleco**: potente dicionario chinés con funcionalidades de pago.
-- **Anki**: aplicación de flashcards altamente configurable.
-- **HelloChinese**: aplicación para aprender chinés con exercicios guiados.
+    -Versión gratuíta básica para uso persoal (local, código aberto).
+    -Versión premium (web) con acceso a funcionalidades avanzadas: exercicios automáticos, progreso, exportación masiva, máis chamadas á API, e posiblemente versións para academias.
 
-Aínda que estas ferramentas son populares, ningunha ofrece unha combinación como a que se propón:
+    2.2. Xustifica a elección.
 
-- Organización personalizada do vocabulario por nivel e tipo gramatical.
-- Integración con asistente IA para explicacións, exemplos e exercicios.
-- Exportación visual estruturada en formatos útiles como Excel.
-
----
-
-### Produtos ou servizos substitutivos
-
-Actualmente os estudantes poden empregar:
-
-- PDFs oficiais de vocabulario (manualmente).
-- Aplicacións de flashcards (Anki).
-- Diccionarios online (Pleco).
-
-Estas opcións non ofrecen a mesma capacidade de personalización nin integración dinámica coa IA, o que outorga unha vantaxe competitiva clara á solución proposta.
-
----
-
-## Estratexia de comercialización
-
-### Promoción
-
-Utilizaranse os seguintes métodos de promoción:
-
-- Redes sociais (Instagram, TikTok, Twitter/X) para chegar a estudantes novos.
-- Páxina web oficial con presentación do produto e acceso á demo.
-- SEO para mellorar o posicionamento en buscas relevantes (e.g., "aprender chinés", "vocabulario HSK").
-- Participación en comunidades online (Discord, foros de estudantes de chinés).
-- Colaboración con academias e profesores de chinés para difusión.
-
-Estas técnicas son axeitadas polo seu baixo custo e alta capacidade de chegar ao público obxectivo, ademais de potenciar a credibilidade mediante recomendacións de profesionais do ensino.
-
----
-
-### Modelo de negocio
-
-Optarase por un modelo **Freemium + Subscrición**:
-
-- Versión básica gratuíta para uso local e persoal (código aberto).
-- Versión premium con acceso a funcionalidades avanzadas:
-  - Xeración automática de exercicios
-  - Seguimento de progreso
-  - Exportación masiva
-  - Chamadas ampliadas á API
-  - Versións adaptadas para academias
-
-Este modelo permite atraer usuarios sen barreiras iniciais, fomentar a comunidade e asegurar a sostibilidade mediante subscricións sen recorrer a publicidade intrusiva.
+    O modelo freemium permite atraer usuarios sen barreiras iniciais e xerar comunidade. A subscrición sostén os custos do mantemento (servidor, API) e permite monetizar sen depender de publicidade nin comprometer a experiencia de usuario.

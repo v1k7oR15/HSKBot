@@ -11,18 +11,6 @@ class Tipo(models.Model):
         return self.nombre
 
 class Palabra(models.Model):
-    TIPO_CHOICES = (
-        ('S', 'Sustantivo'),
-        ('V', 'Verbo'),
-        ('A', 'Adjetivo'),
-        ('AD', 'Adverbio'),
-        ('P', 'Pronombre'),
-        ('C', 'Conjunción'),
-        ('I', 'Interjección'),
-        ('D', 'Determinante'),
-        ('N', 'Numeral'),
-        ('O', 'Otro'),
-    )
     palabra = models.CharField("Vocabulario en chino", max_length=10, db_index=True)
     pinyin = models.CharField(max_length=10)
     traduccion = models.CharField(max_length=200)
