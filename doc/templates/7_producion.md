@@ -1,39 +1,91 @@
-# Fase de produción
+# Fase de Producción
 
-# Manual técnico e de administración
+## Manual técnico e de administración
 
-### Información relativa á instalación ou despregamento:
+### Información relativa á instalación ou despregamento
 
-* Se precisas dun servicio, como unha base de datos, servidor, servicios na nube... indica os pasos a seguir para poder despregar/instalar o teu sistema.
-* Especifica o software necesario e a súa posta a punto (SO, servidores, etc).
-* Configuración inicial seguridade: devasa, control usuarios, rede.
-* Se fora o caso, explica o proceso de carga inicial de datos na base de datos ou migración de datos xa existentes noutros formatos.
-* Alta de usuarios dos sistemas necesarios.
+A aplicación está desenvolvida en **Django** (Python) e emprega **SQLite** como base de datos por defecto.
 
-### Información relativa á administración do sistema, é dicir, tarefas que se deberán realizar unha vez que o sistema estea funcionando, como por exemplo
+#### Requisitos
+- Python 3.13+
+- Node.js (para compilar Tailwind vía django-tailwind)
+- SQLite (incluído por defecto)
+- Sistema operativo: Linux / Windows / MacOS
 
-* Copias de seguridade do sistema.
-* Copias de seguridade da base de datos.
-* Xestión de usuarios.
-* Xestión seguridade.
+#### Configuración inicial de seguridade
+- O acceso á app require rexistro e autenticación.
+- As vistas están protexidas para que cada usuario só vexa os seus datos.
 
-### Información relativa ó matemento do sistema
+#### Carga inicial de datos
+- Existe opción de importar os datos ou directamente vía formulario web.
+- Pódese preparar un script para converter CSV/Excel a modelos Django.
 
-* Especifica o sistema para mellorar e corrixir os erros detectados.
-* Xestión de incidencias: como se atenderán e resolverán. Indica como poderán os usuarios comunicar as incidencias.
+#### Alta de usuarios
+- Cada usuario pode rexistrarse libremente.
+- O administrador pode crear contas desde o panel admin (`/admin`).
 
-# Manual de usuario
+---
 
-### Formación de usuarios 
-* Indicar se será necesario formar ós usuarios. En caso afirmativo planificar e xustificar.
+### Administración do sistema
+
+#### Copias de seguridade
+- Base de datos SQLite pódese copiar directamente como ficheiro (`db.sqlite3`).
+
+#### Xestión de usuarios
+- A xestión faise desde o panel de administración.
+
+#### Xestión de seguridade
+- Acceso mediante login e control de sesión.
+- Validación de formularios e permisos por usuario.
+
+---
+
+### Mantemento do sistema
+
+#### Corrección de erros e melloras
+- O proxecto utiliza control de versións (Git).
+- As incidencias detectadas serán rexistradas nun sistema tipo Trello, GitHub Issues ou similar.
+- Cada erro será revisado e asignado para a súa resolución.
+
+#### Xestión de incidencias
+- Os usuarios poderán comunicar erros vía formulario de contacto.
+- As respostas daranse nun prazo razoable dependendo da gravidade.
+
+---
+
+## Manual de usuario
+
+### Formación de usuarios
+A aplicación é sinxela e intuitiva, non require formación previa.
 
 ### Instrucións iniciais
-* Elabora un manual breve coa información necesaria para o uso da aplicación.
+1. Rexístrate na aplicación.
+2. Accede ao panel de vocabulario.
+3. Engade palabras con significado, pinyin, nivel HSK e exemplo.
+4. Utiliza os filtros para revisar o teu vocabulario.
+5. Practica co asistente IA dende a sección de "Chat".
 
-### FAQ
+---
 
-* Elabora unha serie de preguntas e respostas habituais a modo de axuda para os usuarios.
+## FAQ (Preguntas frecuentes)
 
-# Protección de datos de carácter persoal
+- **Podo usar a app sen rexistrarme?**  
+  Non, é preciso crear unha conta para gardar o teu vocabulario personalizado.
 
-* Se almacenas datos persoais e/ou de carácter sensible, debes especificar como deberás comunicar, almacenar e xestionar a información.
+- **Podo ver o vocabulario doutros usuarios?**  
+  Non, cada usuario só pode acceder aos seus propios datos.
+
+- **Como exporto os meus datos?**  
+  Desde a sección "Ver palabras" tes un botón de exportación.
+
+- **Funciona no móbil?**  
+  Si, a aplicación está adaptada a dispositivos móbiles.
+
+---
+
+## Protección de datos de carácter persoal
+
+- A aplicación almacena nomes de usuario e correos electrónicos cifrados mediante os mecanismos internos de Django.
+- Os datos non se comparten nin se usan para fins comerciais.
+- Cada usuario pode solicitar a eliminación da súa conta e datos asociados.
+- A base de datos está protexida e accesible só desde o backend da aplicación.
