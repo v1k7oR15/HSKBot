@@ -2,8 +2,8 @@
 
 ## Deseño do proxecto
 
-### Modelo conceptual do dominio da aplicación e/ou Diagrama de clases [usando UML, ConML, ou linguaxe semellante].
-<img src="victor-manuel-iglesias/doc/img/diagramadeclases.svg" alt="Diagrama UML" />
+### Modelo conceptual do dominio da aplicación e/ou Diagrama de clases.
+<img src="doc/img/UML.svg" alt="Diagrama UML" />
 ### Casos de uso [descritos en fichas e/ou mediante esquemas; deben incluír os actores (tipos de usuarios) implicados en cada caso de uso].
 
 | ID   | Nome                | Actor   | Descrición                                                 |
@@ -35,13 +35,9 @@ O estilo visual baséase en Tailwind CSS, con cores escuras e degradados azul-vi
 
 ### Diagrama de Base de Datos.
 
-<img src="victor-manuel-iglesias/doc/img/diagramabasededatos.svg" alt="Diagrama UML" />
+<img src="/doc/img/diagramadatos.svg" alt="Diagrama Base de datos" />
 
-### Diagrama de compoñentes software que constitúen o produto e de despregue.
-
-### Diagrama de despregamento
-
-### Outros diagramas, esquemas ou documentacion (seguridade, redundancia, expliacións, configuracións...)
+### Consideracións técnicas e de seguridade
 
 - Acceso por login con autenticación de Django
 - Variables sensibles (.env) con claves API, credenciais
