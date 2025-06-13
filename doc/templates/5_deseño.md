@@ -3,8 +3,10 @@
 ## Deseño do proxecto
 
 ### Modelo conceptual do dominio da aplicación e/ou Diagrama de clases.
+
 <img src="doc/img/UML.svg" alt="Diagrama UML" />
-### Casos de uso [descritos en fichas e/ou mediante esquemas; deben incluír os actores (tipos de usuarios) implicados en cada caso de uso].
+
+### Casos de uso.
 
 | ID   | Nome                | Actor   | Descrición                                                 |
 |------|---------------------|---------|-------------------------------------------------------------|
@@ -13,7 +15,7 @@
 | CU03 | Usar chat IA        | Usuario | O usuario conversa co asistente virtual integrado           |
 | CU04 | Exportar listas     | Usuario | Pode descargar as súas palabras en PDF/XLSX                 |
 
-### Deseño de interfaces de usuarios [mockups ou diagramas...].
+### Deseño de interfaces de usuarios.
 
 - A pantalla principal presenta unha barra lateral con navegación sinxela, filtros por categoría e nivel HSK, e unha táboa central de palabras. Inclúe tamén un buscador e botón para engadir novo vocabulario.
 
@@ -25,7 +27,7 @@
 
 O estilo visual baséase en Tailwind CSS, con cores escuras e degradados azul-violeta, tipografía clara e deseño responsive adaptable a dispositivos móbiles.
 
-### Diseño de interfaces software e hardware (se aplica)
+### Diseño de interfaces software e hardware.
 
 - Non se require hardware específico
 - Software:
