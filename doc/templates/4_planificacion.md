@@ -18,8 +18,7 @@
 | **Ferramentas**      | VS Code, GitLab, SQLite, Tailwind, DeepSeek API.                                                                                                                               |
 
 
-### Metodoloxía
-Indica a metodoloxía que se utilizará para a elaboración do proxecto: ciclo en cascada, incremental, espiral... Xustifica a elección.
+## Metodoloxía
 
 ### Fases planificadas
 
@@ -35,7 +34,7 @@ Indica a metodoloxía que se utilizará para a elaboración do proxecto: ciclo e
 | Tarefa                        | Descrición                            | HW/SW                 | Recursos | Dur. |
 | ----------------------------- | ------------------------------------- | --------------------- | -------- | ---- |
 | 2.1 Diagramas UML             | Casos de uso, modelo BD, secuencia IA | Draw\.io              | Víctor   | 2 h  |
-| 2.2 Prototipo UI wireframe    | Navegación, mockups Tailwind          | Figma                 | Víctor   | 5 h  |
+| 2.2 Prototipo UI wireframe    | Navegación, mockups Tailwind          | VS Code               | Víctor   | 5 h  |
 | 2.3 Config inicial repo       | GitLab, `.venv`                       | VS Code               | Víctor   | 2 h  |
 | 2.4 Def. API DeepSeek         | Especificar prompts, límite tokens    | Postman               | Víctor   | 2 h  |
 | 2.5 Plan seguridade & back-up | backups BD                            | Markdown              | Víctor   | 2 h  |
@@ -51,74 +50,51 @@ Indica a metodoloxía que se utilizará para a elaboración do proxecto: ciclo e
 | S4     | **Exportación Excel/PDF** <br>Formato con cores por categoría        | 10          |
 
 ### Diagrama de Gantt
-Un diagrama de Gantt é unha representación gráfica da secuenciación que tes que seguir para realizar as tarefas planificadas. Pódese usar o software "Gantt project" ou calquera outro que permita representar nun cronograma a información relativa á planificación de tarefas. Neste diagrama plasmarás de forma gráfica e manexable as fases e tarefas anteriores.
+![Diagrama de Gantt do proxecto](doc/img/diagramagant.png)
 
 ## Orzamento
-O orzamento do proxecto será a suma do importe dos materiais que necesites para realizar o proxecto máis o importe que corresponde ao traballo realizado. 
-O importe relacionado co traballo no proxecto é relativamente fácil de obter se se elaboraron ben as etapas anteriores: definir as actividades necesarias e os recursos propios de cada actividade. Neste caso disporase dun custo por cada actividade e a suma do custo de todas as actividades será o custo total do traballo do proxecto. 
-Para establecer os custos do proxecto debes ter en conta diferentes conceptos: 
-- Materiais que se utilizan: material funxible, materias primas, materiais didácticos, roupa de traballo… 
-- Custo horario das persoas que participan directamente na actividade. 
-- Aluguer/compra de ferramentas, maquinaria, equipos informáticos e/ou audiovisuais… 
-- Aluguer/compra de locais 
-- Contratos de subministracións: auga, luz, electricidade, gas… Subcontrataciones 
-- Gastos de publicidade… 
-- Seguros ... 
 
-O maior custo no proxecto case sempre corresponde ás persoas, polo que é importante controlar o número de horas que se invisten en cada actividade para que non se nos desequilibre o orzamento. Tamén hai que coidar as subcontratacións; convén que traballen cun orzamento establecido.
- A continuación preséntanse dúas opción de táboa para facilitar a creación do orzamento do proxecto:
+### Orzamento por actividade - Proxecto Mínimo Viable
 
-### Orzamento por actividade
+| ACTIVIDADE                        | DURACIÓN ESTIMADA | PERSOAS (€/hora) | RECURSOS MATERIAIS (€) | CUSTO TOTAL ACTIVIDADE (€) |
+| --------------------------------- | ----------------- | ---------------- | ---------------------- | -------------------------- |
+| Investigación e análise           | 3 h               | 15 €/h           | 0 €                    | 45 €                       |
+| Deseño técnico (UML, UI)          | 7 h               | 15 €/h           | 0 €                    | 105 €                      |
+| Configuración inicial do proxecto | 2 h               | 15 €/h           | 0 €                    | 30 €                       |
+| Integración API DeepSeek          | 4 h               | 15 €/h           | 0 €                    | 60 €                       |
+| Desenvolvemento CRUD + UI básica  | 10 h              | 15 €/h           | 0 €                    | 150 €                      |
+| Exportación Excel/PDF             | 5 h               | 15 €/h           | 0 €                    | 75 €                       |
+| Probado e documentación           | 4 h               | 15 €/h           | 0 €                    | 60 €                       |
 
-| ACTIVIDADE | DURACIÓN | CUSTO (EUROS) | | CUSTO TOTAL ACTIVIDADE |
-|--|--|--|--|--|
-|            |          | PERSOAS|RECURSOS MATERIAIS|
-|||||
-|||||
-|||||
-|||||
+### Orzamento por actividade - Versión Profesional Futura
 
-| TOTAL | PROXECTO | 
-| -- | -- |
+| ACTIVIDADE                         | DURACIÓN ESTIMADA | PERSOAS (€/hora) | RECURSOS MATERIAIS (€) | CUSTO TOTAL ACTIVIDADE (€) |
+| ---------------------------------- | ----------------- | ---------------- | ---------------------- | -------------------------- |
+| Análise de mercado e usuarios      | 5 h               | 25 €/h           | 0 €                    | 125 €                      |
+| Deseño UI/UX profesional           | 10 h              | 30 €/h           | 0 €                    | 300 €                      |
+| Backend API REST + base de datos   | 15 h              | 30 €/h           | 0 €                    | 450 €                      |
+| Frontend web responsive            | 15 h              | 30 €/h           | 0 €                    | 450 €                      |
+| Integración avanzada con IA        | 10 h              | 35 €/h           | 20 € (API)             | 370 €                      |
+| Panel de usuario e docente         | 10 h              | 30 €/h           | 0 €                    | 300 €                      |
+| Sistema de subscrición             | 6 h               | 30 €/h           | 0 €                    | 180 €                      |
+| Despregue dockerizado              | 6 h               | 30 €/h           | 0 €                    | 180 €                      |
+| Probas, documentación e lanzamento | 8 h               | 25 €/h           | 0 €                    | 200 €                      |
 
 ### Orzamento por partidas de inversión / gasto:
 
-| CONCEPTO | IMPORTE|
-|--|--|
-|**A) INVERSIONS**
-|Gastos de establecemento e gastos de constitución
-|Total inmobilizacións inmateriais
-|Terreos
-|Construcións
-|Instalacións técnicas
-|Maquinaria
-|Ferramentas
-|Mobiliario e instalacións
-|Equipos informáticos
-|Elementos de transporte
-|Outro inmobilizado material
-|Total inmobilizacións materiais
-|Outros gastos a distribuír en varios exercicios
-|**TOTAL INVERSIÓNS:**
-|**B) GASTOS**
-|Compras de materiais
-|Arrendamentos
-|Publicidade, propaganda e relacións públicas
-|Persoal
-|Reparacións e conservación
-|Servizos de profesionais independentes
-|Outros gastos xerais
-|Gastos financeiros
-|Amortizacións
-|Gastos de xestión e administración
-|**TOTAL GASTOS:**
-
-|TOTAL ORZAMENTO:
-|--|
-
-### WEBGRAFÍA
-Guía para a elaboración de proyectos. Gobierno Vasco.
-https://www.pluralismoyconvivencia.es/upload/19/71/guia_elaboracion_proyectos_c.pdf  (páxina 49 e seguintes)
-
-
-
+| CONCEPTO                                                        | IMPORTE (€) |
+| --------------------------------------------------------------- | ----------- |
+| **A) INVERSIÓNS**                                               |             |
+| Equipos informáticos (ordenador persoal utilizado)              | 800 €       |
+| Mobiliario e instalacións (mesa de traballo, cadeira)           | 150 €       |
+| Software empregado (VS Code, SQLite, bibliotecas – open source) | 0 €         |
+| Total inmobilizacións materiais                                 | **950 €**   |
+|                                                                 |             |
+| **B) GASTOS**                                                   |             |
+| Materiais funxibles (libreta, bolígrafos, folios...)            | 10 €        |
+| Internet (prorrata 2 meses do custo mensual: 40 €/mes)          | 80 €        |
+| Electricidade (uso estimado 20 €/mes durante o desenvolvemento) | 40 €        |
+| Persoal (35 h × 15 €/h, como desenvolvedor individual)          | 525 €       |
+| Publicidade e promoción (difusión orgánica en redes)            | 20 €        |
+| Outros gastos xerais (copias, imprevistos menores)              | 15 €        |
+| Total gastos                                                    | **690 €**   |
