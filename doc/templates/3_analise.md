@@ -38,7 +38,7 @@ A aplicación integra Tailwind CSS para unha interface limpa, IA (vía DeepSeek)
 #### Software
 - Backend: Python 3.12, Django 5, Django REST Framework, Celery + Redis.
 - Frontend: Tailwind CSS; build automatizado con django-tailwind.
-- Base de datos: PostgreSQL 16 (SQLite para modo local).
+- Base de datos: SQLite para modo local.
 
 #### Infraestrutura 
 - Docker, docker-compose.
