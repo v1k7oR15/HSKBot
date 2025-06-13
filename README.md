@@ -1,40 +1,56 @@
 # Proyecto fin de ciclo
 
-> *TODO*: Este documento será la "*página de aterrizaje*" de tu proyecto. Será lo primero que vean los que se interesen por él. Cuida su redacción con todo tu mimo. Elimina posteriormente todas las líneas "*TODO*" cuando creas finalizada su redacción.
-> Puedes acompañar a la redacción de este fichero con imágenes o gifs, pero no abuses de ellos.
-
 ## Descripción
 
-> *TODO*: Realiza una breve descripción del proyecto. No menos de 100 palabras y no más de 300. Resalta lo fundamental **con tus propias palabras**. Utiliza un lenguaje correcto, **pero natural**, que lo entienda todo el mundo, incluso y en especial, las personas que no tengan un conocimiento técnico avanzado. Puede ser un extracto o resumen de apartados que ya contemples en otros ficheros.
+**HSKBot** é unha aplicación web que facilita o estudo do vocabulario chinés mandarin, especialmente para os niveis 1 a 4 do exame oficial HSK. Permite crear unha base de datos personalizada de palabras, engadidas manualmente ou completadas automaticamente con IA (pinyin, tradución, tipo gramatical, nivel e exemplo).
 
-HSKBot é unha aplicación deseñada para axudar ao estudo activo de vocablario de chinés mandarín, sobre todo pensada para os primeriros 4 niveis do exame oficial HSK. Esta ferramenta permiteññe ao usuario construir a sua propia base de datos de palabras. Engade cada palabra manualmente ou, se se prefire, deixa que a IA complete toda a información (pinyin, traducción ao galego/castelán, tipo gramatical, nivel HSK e un exemplo real de uso). Unha vez que o usuario teña unha lista de caracteres poderanse exportar de forma ordenada e filtrada por nivel, categoría léxica ou calqueira criterio que o usuario precise e estos exportaranse nunha vista clara con códigos de cor para mellorar a memorización 
-Ademais ofrece un chat integrado que, dentro de un limites controlados, o usuario poderá xerar exercicios personalizdos, resolver dúbidas lingüísticas empregando chamadas de funcións seguras: a IA só le a base de datos en modo lectura, evitando así cambios non desexados. Cando o usario quere levar a lista de vocabulario ao papel, simplemente con un click poderá exportar a listaxe a un excel ordenado. Así HSKBot converte as longas listas oficias en material de estudo flexible e visual.
+Inclúe filtros por nivel e categoría, exportación visual a Excel con códigos de cor, e un chat integrado con IA para xerar exercicios ou resolver dúbidas. Todo iso nun entorno seguro, visual e adaptado ao ritmo de cada estudante.
 
 ## Instalación / Puesta en marcha
 
-> *TODO*: En este apartado describe con toda precisión y a poder ser con la mayor simplicidad/facilidad posible, cómo poner en marcha tu aplicación para probarla (en un ambiente local). Se valorará muy positivamente que este proceso sea lo más fácil posible, con una simple instrucción (p. e. un script de instalación).
-> Si tu proyecto es documental, realiza una especificación de cómo va a ser este proceso. En otras palabras, realiza este apartado independientemente que no haya implementación.
+1. Clona o repositorio:
+   ```bash
+   git clone git@gitlab.com:iesleliadoura/DAM2/victor-manuel-iglesias.git
+   cd victor-manuel-iglesias
+   ```
+
+2. Crea o entorno virtual:
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate
+   ```
+
+3. Instala os requisitos:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Executa o servidor:
+   ```bash
+   python manage.py runserver
+   ```
 
 ## Uso
 
-> *TODO*: Es este apartado describe brevemente cómo se usará el software que proyectas. Si tiene una interfaz de terminal, describe aquí su sintaxis. Si tiene una interfaz gráfica de usuario, describe aquí **sólo el uso** (a modo de sumario) **de los aspectos más relevantes de su funcionamiento** (máxima brevedad, como si fuese un anuncio reclamo o comercial).
-> Si tu proyecto es documental, realiza una especificación de cómo planteas estas interfaces, con ejemplos incluso o esquemas de diseño. En otras palabras, realiza este apartado independientemente que no haya implementación.
+- **Inicio de sesión** e rexistro de usuarios.
+- **Engadir palabras** manualmente ou mediante IA.
+- **Filtrar e buscar vocabulario** por nivel HSK, tipo gramatical, etc.
+- **Exportación a Excel** con formato de cores.
+- **Chat con IA** para resolver dúbidas ou xerar exercicios.
+
+Interface clara e responsiva, deseñada con Tailwind CSS.
 
 ## Sobre el autor
 
-> *TODO*: Realiza una breve descripción de quién eres (perfil profesional), tus puntos fuertes, o tecnologías que más dominas... y porqué te has decantado por este proyecto. **No más de 200 palabras**. Indica la forma fiable de contactar contigo en el presente y en el futuro.
+Chámome **Víctor Iglesias**, estudante de Desenvolvemento de Aplicacións Multiplataforma. Interésanme o deseño de páxinas web e as linguas estranxeiras, polo que este proxecto xorde da combinación de ambos intereses. A idea era crear unha ferramenta útil para estudantes coma min, que aprendan chinés dun xeito máis visual e organizado.
+📧 Contacto: arcosvictor1@gmail.com
 
 ## Licencia
-
-> *TODO*: Es requisito INDISPENSABLE el licenciar explícitamente el proyecto software. Se recomienda licenciar con *GNU Free Documentation License Version 1.3*. Crear un fichero `LICENSE` en la raíz del repo, con tu fichero de licencia. Recuerda que si empleas una licencia de software libre estás autorizando la derivación de tu obra bajo la misma licencia que elijas, pudiendo dar continuidad, p. e. otro alumno, para continuar tu proyecto en otro curso.
-> Si tu proyecto es documental, recomendamos los términos de *GNU Free Documentation License Version 1.3*, crea igualmente el fichero `LICENSE`. Será especialmente valorado en este caso, la claridad de la especificación para que el proyecto pueda ser ejecutado partiendo de lo proyectado.
 
 Este proxecto esta licenciado baixo a licencia GNU General Public License v3.0.
 Consulte o archivo [LICENSE](./LICENSE) para máis información
 
 ## Índice
-
-> *TODO*: Simplemente indexa ordenadamente todo tu proyecto.
 
 1. Anteproyecto
     * 1.1. [Idea](doc/templates/1_idea.md)
@@ -49,8 +65,16 @@ Consulte o archivo [LICENSE](./LICENSE) para máis información
 
 ## Guía de contribución
 
-> *TODO*: Tratándose de un proyecto de software libre, es muy importante que expongas cómo se puede contribuir con tu proyecto. Algunos ejemplos de esto son realizar nuevas funcionalidades, corrección y/u optimización del código, realización de test automatizados, nuevas interfaces de integración, desarrollo de plugins, etc. etc. Sé lo más conciso que puedas.
+Este é un proxecto de software libre. Se queres contribuír, podes:
+
+- Engadir novas funcionalidades
+- Corrixir ou optimizar o código
+- Desenvolver novos tests automáticos
+- Crear novos plugins ou integracións
+- Mellorar a interface de usuario
 
 ## Links
 
-> *TODO*: Enlaces externos y descripciones de estos enlaces que creas conveniente indicar aquí. Generalmente ya van a estar integrados con tu documentación, pero si requieres realizar un listado de ellos, este es el lugar.
+- [Documentación de Django](https://docs.djangoproject.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [DeepSeek API](https://platform.deepseek.com/)
