@@ -26,7 +26,7 @@
 
 | Tarefa                    | Descrición                                           | HW/SW                  | Recursos humanos | Duración |
 | ------------------------- | ---------------------------------------------------- | ---------------------- | ---------------- | -------- |
-| 1.1 Investigación usuario | análise PDFs HSK | Portátil, Google Forms            | Portátil               | Víctor           | 2 h      |
+| 1.1 Investigación usuario | análise PDFs HSK                                     | Portátil               | Víctor           | 2 h      |
 | 1.2 Análise competidores  | Apps HSK existentes, prezos, carencias               | Navegador              | Víctor           | 1 h      |
 
 #### Fase 2: Deseño técnico
