@@ -1,5 +1,4 @@
 # REQUIRIMENTOS DO SISTEMA
-Este documento recolle os requirimentos do proxecto HSKBot, unha aplicación web para organizar e estudar vocabulario de chinés mandarín
 
 ## Descrición Xeral
 
