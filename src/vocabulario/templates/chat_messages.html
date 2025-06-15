@@ -2,9 +2,9 @@
 {% for mensaje in mensajes %}
     <div class="flex w-full mt-2 space-x-3 max-w-xl {% if mensaje.role == 'user' %}ml-auto justify-end{% endif %}">
         {% if mensaje.role == 'assistant' %}
-        <div class="flex-shrink-0 h-10 w-10 rounded-full overflow-hidden">
-            <img src="{% static 'img/logo.png' %}" alt="DeepSeek" class="h-full w-full object-cover"/>
-        </div>
+            <div class="flex-shrink-0 h-10 w-10 rounded-full overflow-hidden">
+                <img src="{% static 'img/logo.png' %}" alt="DeepSeek" class="h-full w-full object-cover"/>
+            </div>
         {% endif %}
         <div>
             <div class="{% if mensaje.role == 'assistant' %}bg-slate-700{% else %}bg-blue-600{% endif %} p-3 rounded-lg">
@@ -12,21 +12,21 @@
             </div>
         </div>
         {% if mensaje.role == 'user' %}
-        <div class="flex-shrink-0 h-10 w-10 rounded-full overflow-hidden">
-            {% if user.perfil.imagen %}
-            <img
-            src="{{ user.perfil.imagen.url }}"
-            alt="Foto de {{ mensaje.user.username }}"
-            class="h-full w-full object-cover"
-            />
-        {% else %}
-            <img
-            src="{% static 'img/profilepicture.png' %}"
-            alt="Avatar genérico"
-            class="h-full w-full object-cover"
-            />
-        {% endif %}
-        </div>
+            <div class="flex-shrink-0 h-10 w-10 rounded-full overflow-hidden">
+                {% if user.perfil.imagen %}
+                    <img
+                        src="{{ user.perfil.imagen.url }}"
+                        alt="Foto de {{ mensaje.user.username }}"
+                        class="h-full w-full object-cover"
+                    />
+                {% else %}
+                    <img
+                        src="{% static 'img/profilepicture.png' %}"
+                        alt="Avatar genérico"
+                        class="h-full w-full object-cover"
+                    />
+                {% endif %}
+            </div>
         {% endif %}
     </div>
 {% empty %}

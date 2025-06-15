@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -16,7 +17,6 @@
 <body class="leading-normal tracking-normal min-h-screen" style="font-family: 'Rubik', sans-serif;">
     <div class="flex flex-col h-screen">
         <header class="flex items-center justify-between md:justify-between p-4 md:p-8 h-4 bg-slate-800 flex-shrink-0 shadow-md backdrop-blur text-white relative">
-            <!-- Botón menú hamburguesa solo en móvil -->
             <button id="menu-toggle" class="outline-none md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-2 top-1/2 -translate-y-1/2">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -44,84 +44,80 @@
             </div>
         </header>
         <div class="flex flex-1 min-h-0 relative">
-            <!-- Overlay oscuro -->
             <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
-            <!-- Aside: menú lateral -->
             <aside id="sidebar"
                 class="fixed z-50 top-0 left-0 h-full w-64 bg-slate-900 p-4 transform -translate-x-full transition-transform duration-200 ease-in-out
                        md:static md:translate-x-0 md:w-1/6 md:block md:z-0">
                 <nav>
                     <ul class="space-y-2 text-lg">
                         <li>
-                            <a href="{% url 'inicio' %}"
-                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
-                               {% if request.resolver_match.url_name == 'inicio' %}
-                                   bg-blue-700/40 text-blue-300
-                               {% else %}
-                                   text-white hover:bg-blue-700/30 hover:text-blue-300
-                               {% endif %}">
-                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'inicio' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6" />
+                            <a href="{% url 'inicio' %}" class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                                {% if request.resolver_match.url_name == 'inicio' %}
+                                    bg-blue-700/40 text-blue-300
+                                {% else %}
+                                    text-white hover:bg-blue-700/30 hover:text-blue-300
+                                {% endif %}">
+                                <!-- Home -->
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'inicio' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 11.5L12 4l9 7.5V20a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-4h-4v4a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V11.5z"/>
                                 </svg>
                                 Inicio
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'chat' %}"
-                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
-                               {% if request.resolver_match.url_name == 'chat' %}
-                                   bg-blue-700/40 text-blue-300
-                               {% else %}
-                                   text-white hover:bg-blue-700/30 hover:text-blue-300
-                               {% endif %}">
-                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'chat' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" />
+                            <a href="{% url 'chat' %}" class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                                {% if request.resolver_match.url_name == 'chat' %}
+                                    bg-blue-700/40 text-blue-300
+                                {% else %}
+                                    text-white hover:bg-blue-700/30 hover:text-blue-300
+                                {% endif %}">
+                                <!-- Chat -->
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'chat' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                                 </svg>
                                 Chat
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'palabra' %}"
-                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
-                               {% if request.resolver_match.url_name == 'palabra' or request.resolver_match.url_name == 'editar_palabra' %}
-                                   bg-blue-700/40 text-blue-300
-                               {% else %}
-                                   text-white hover:bg-blue-700/30 hover:text-blue-300
-                               {% endif %}">
-                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'palabra' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                  <circle cx="12" cy="12" r="9" class="fill-slate-800"/>
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8M8 12h8" />
+                            <a href="{% url 'palabra' %}" class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                                {% if request.resolver_match.url_name == 'palabra' or request.resolver_match.url_name == 'editar_palabra' %}
+                                    bg-blue-700/40 text-blue-300
+                                {% else %}
+                                    text-white hover:bg-blue-700/30 hover:text-blue-300
+                                {% endif %}">
+                                <!-- Plus Circle -->
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'palabra' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v8M8 12h8" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                                 Añadir palabra
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'mostrar_palabras' %}"
-                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
-                               {% if request.resolver_match.url_name == 'mostrar_palabras' %}
-                                   bg-blue-700/40 text-blue-300
-                               {% else %}
-                                   text-white hover:bg-blue-700/30 hover:text-blue-300
-                               {% endif %}">
-                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'mostrar_palabras' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                  <rect x="3" y="5" width="7" height="14" rx="2" class="fill-slate-800" />
-                                  <rect x="14" y="5" width="7" height="14" rx="2" class="fill-slate-800" />
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h7M14 7h7M3 17h7M14 17h7" />
+                            <a href="{% url 'mostrar_palabras' %}" class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                                {% if request.resolver_match.url_name == 'mostrar_palabras' %}
+                                    bg-blue-700/40 text-blue-300
+                                {% else %}
+                                    text-white hover:bg-blue-700/30 hover:text-blue-300
+                                {% endif %}">
+                                <!-- Book Open -->
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'mostrar_palabras' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M2 6a2 2 0 0 1 2-2h7v16H4a2 2 0 0 1-2-2V6zm18-2h-7v16h7a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
                                 </svg>
                                 Ver palabras
                             </a>
                         </li>
                         <li>
-                            <a href="{% url 'repaso' %}"
-                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
-                               {% if request.resolver_match.url_name == 'repaso' %}
-                                   bg-blue-700/40 text-blue-300
-                               {% else %}
-                                   text-white hover:bg-blue-700/30 hover:text-blue-300
-                               {% endif %}">
-                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'repaso' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
-                                    <rect x="3" y="3" width="18" height="18" rx="2" class="fill-slate-800"/>
+                            <a href="{% url 'repaso' %}" class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                                {% if request.resolver_match.url_name == 'repaso' %}
+                                    bg-blue-700/40 text-blue-300
+                                {% else %}
+                                    text-white hover:bg-blue-700/30 hover:text-blue-300
+                                {% endif %}">
+                                <!-- Clock -->
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'repaso' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                                 Repasar palabras
                             </a>

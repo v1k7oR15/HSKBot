@@ -32,9 +32,7 @@ def chat_view(request):
     if request.method == 'POST':
         user_message = request.POST.get('mensaje')
         if user_message:
-            # Añade primero el mensaje del usuario
             mensajes.append({"role": "user", "content": user_message})
-            # Luego la respuesta de la IA
             respuesta = ai_message(user_message)
             mensajes.append({"role": "assistant", "content": respuesta})
         request.session['mensajes'] = mensajes
@@ -58,7 +56,6 @@ def login_view(request):
                 if user is not None:
                     login(request, user)
                     if remember_me:
-                        # 30 días (en segundos)
                         request.session.set_expiry(2592000)
                     else:
                         request.session.set_expiry(0)
@@ -184,7 +181,11 @@ def exportar_palabras_excel(request):
                     palabra.ejemplo or ''
                 ])
                 for col in range(1, len(headers) + 1):
-                    ws.cell(row=row_num, column=col).fill = PatternFill(start_color="FFFDE7", end_color="FFFDE7", fill_type="solid")
+                    ws.cell(row=row_num, column=col).fill = PatternFill(
+                        start_color=tipo.color.replace('#', ''),
+                        end_color=tipo.color.replace('#', ''),
+                        fill_type="solid"
+                    )
                 row_num += 1
 
     for i, col in enumerate(headers, 1):
