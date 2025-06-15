@@ -19,7 +19,7 @@
           />
         </div>
         <label for="id_imagen" class="text-blue-100 font-semibold text-sm mb-2">Cambiar foto de perfil</label>
-        {{ perfil_form.imagen|add_class:"bg-slate-800 text-white rounded px-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-400 file:bg-blue-600 file:text-white file:rounded file:px-3 file:py-2" }}
+        {{ perfil_form.imagen|add_class:"cursor-pointer bg-slate-800 text-white rounded px-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-400 file:bg-blue-600 file:text-white file:rounded file:px-3 file:py-2" }}
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="flex flex-col gap-1">
@@ -47,6 +47,18 @@
     <h3 class="text-xl text-blue-200 mb-4 text-center">Cambiar contraseña</h3>
     <form method="post" class="space-y-4 mb-4">
       {% csrf_token %}
+      {% if password_form.errors %}
+        <div class="bg-red-700 text-white rounded p-3 mb-2 text-sm">
+          {% for field in password_form %}
+            {% for error in field.errors %}
+              <div>{{ error }}</div>
+            {% endfor %}
+          {% endfor %}
+          {% for error in password_form.non_field_errors %}
+            <div>{{ error }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
       <div class="flex flex-col gap-1">
         <label for="id_old_password" class="text-blue-100 mt-2 font-semibold text-sm">Contraseña actual</label>
         {{ password_form.old_password|add_class:"bg-slate-800 text-white rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 w-full" }}

@@ -111,6 +111,21 @@
                                 Ver palabras
                             </a>
                         </li>
+                        <li>
+                            <a href="{% url 'repaso' %}"
+                               class="flex items-center gap-3 px-4 py-2 rounded-lg transition font-medium
+                               {% if request.resolver_match.url_name == 'repaso' %}
+                                   bg-blue-700/40 text-blue-300
+                               {% else %}
+                                   text-white hover:bg-blue-700/30 hover:text-blue-300
+                               {% endif %}">
+                                <svg class="w-5 h-5 {% if request.resolver_match.url_name == 'repaso' %}text-blue-300{% else %}text-blue-400{% endif %}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                                    <rect x="3" y="3" width="18" height="18" rx="2" class="fill-slate-800"/>
+                                </svg>
+                                Repasar palabras
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </aside>

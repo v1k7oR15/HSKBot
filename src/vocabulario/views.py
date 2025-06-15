@@ -14,6 +14,7 @@ from django.db import IntegrityError
 from django.shortcuts import get_object_or_404
 import django_tables2 as tables
 import openpyxl
+import random
 from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils import get_column_letter
 from .models import Palabra
@@ -22,12 +23,10 @@ from django.contrib.auth import update_session_auth_hash
 
 
 def base_view(request):
-    # Recupera el historial de la sesión o crea uno nuevo
     return render(request, 'inicio.html')
 
 @login_required
 def chat_view(request):
-    # Esta vista es para manejar la lógica del chat
     mensajes = request.session.get('mensajes', [])
 
     if request.method == 'POST':
@@ -60,9 +59,8 @@ def login_view(request):
                     login(request, user)
                     if remember_me:
                         # 30 días (en segundos)
-                        request.session.set_expiry(60 * 60 * 24 * 30)
+                        request.session.set_expiry(2592000)
                     else:
-                        # Sesión expira al cerrar el navegador
                         request.session.set_expiry(0)
                     return redirect('inicio')
                 else:
@@ -189,7 +187,6 @@ def exportar_palabras_excel(request):
                     ws.cell(row=row_num, column=col).fill = PatternFill(start_color="FFFDE7", end_color="FFFDE7", fill_type="solid")
                 row_num += 1
 
-    # Ajustar ancho de columnas
     for i, col in enumerate(headers, 1):
         ws.column_dimensions[get_column_letter(i)].width = 18
 
@@ -223,4 +220,39 @@ def editar_usuario(request):
         'form': user_form,
         'perfil_form': perfil_form,
         'password_form': password_form,
+    })
+
+@login_required
+def repaso_view(request):
+    palabra = None
+    resultado = None
+    correcta = None
+    user_traduccion = ''
+
+    palabras = Palabra.objects.all()
+    if not palabras.exists():
+        return render(request, 'repaso.html', {
+            'palabra': None,
+            'resultado': None,
+            'correcta': None,
+            'user_traduccion': '',
+        })
+
+    if request.method == 'POST':
+        palabra_id = request.POST.get('palabra_id')
+        user_traduccion = request.POST.get('traduccion', '').strip()
+        palabra = Palabra.objects.get(id=palabra_id)
+        correcta = palabra.traduccion.strip()
+        resultado = (user_traduccion.lower() == correcta.lower())
+    else:
+        palabra = random.choice(palabras)
+        resultado = None
+        correcta = None
+        user_traduccion = ''
+
+    return render(request, 'repaso.html', {
+        'palabra': palabra,
+        'resultado': resultado,
+        'correcta': correcta,
+        'user_traduccion': user_traduccion,
     })

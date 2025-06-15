@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="flex flex-col items-center justify-center w-full min-h-[80vh] px-2">
+  <div class="w-full max-w-lg bg-slate-900 bg-opacity-95 rounded-2xl shadow-2xl p-8 flex flex-col items-center mt-12 mb-12">
+    <h2 class="text-2xl font-bold text-blue-200 mb-6 text-center">Practica tus palabras</h2>
+    {% if palabra %}
+      <div class="text-5xl font-extrabold text-white mb-2">{{ palabra.palabra }}</div>
+      {% if resultado is not None %}
+        {% if resultado %}
+          <div class="bg-green-700 text-white px-4 py-2 rounded mb-4 mt-2">¡Correcto!</div>
+        {% else %}
+          <div class="bg-red-700 text-white px-4 py-2 rounded mb-4 mt-2">
+            Incorrecto. La traducción correcta es: <span class="font-bold">{{ correcta }}</span>
+          </div>
+        {% endif %}
+        <div class="mt-2 text-blue-200 text-base">
+          Pinyin: <span class="font-semibold">{{ palabra.pinyin }}</span>
+        </div>
+        <a href="{% url 'repaso' %}" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow transition">Siguiente</a>
+      {% else %}
+        <form method="post" class="w-full flex flex-col items-center gap-4 mt-2">
+          {% csrf_token %}
+          <input type="hidden" name="palabra_id" value="{{ palabra.id }}">
+          <input type="text" name="traduccion" value="{{ user_traduccion }}" placeholder="Introduce la traducción"
+                 class="w-full bg-slate-800 text-white rounded px-3 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-center" autocomplete="off" autofocus>
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg shadow transition">Comprobar</button>
+        </form>
+      {% endif %}
+    {% else %}
+      <div class="text-white text-center">No hay palabras en la base de datos.</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
