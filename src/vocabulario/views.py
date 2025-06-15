@@ -32,8 +32,9 @@ def chat_view(request):
     if request.method == 'POST':
         user_message = request.POST.get('mensaje')
         if user_message:
+            mensajes_contexto = mensajes[-10:]
             mensajes.append({"role": "user", "content": user_message})
-            respuesta = ai_message(user_message)
+            respuesta = ai_message(user_message, mensajes_contexto)
             mensajes.append({"role": "assistant", "content": respuesta})
         request.session['mensajes'] = mensajes
 

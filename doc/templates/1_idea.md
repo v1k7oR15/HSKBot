@@ -2,7 +2,7 @@
 
 Este proxecto consiste no desenvolvemento dunha aplicación web funcional destinada a estudantes da lingua chinesa. O seu propósito é ofrecer unha ferramenta flexible e visual para organizar, practicar e revisar vocabulario segundo os niveis do estándar oficial **HSK** (汉语水平考试).
 
-A diferenza doutras solucións existentes, esta aplicación non se limita a un dicionario ou a un sistema de flashcards. Pretende dar ao usuario **control total sobre o seu vocabulario**, integrando tamén funcionalidades avanzadas como o **recheo automático con IA**.
+A diferenza doutras solucións existentes, que se limitan a un dicionario ou a un sistema de flashcards, esta aplicación pretende unificar estas funcionalidades e darlle un estilo persoal. O obxetivo é darlle ao usuario **control total sobre o seu vocabulario**, podendo engadir, editar, organizar, filtrar e repasar suas propias palabras.
 
 ---
 
@@ -36,7 +36,7 @@ Actualmente existen poucas ferramentas que combinen:
 
 - Organización estruturada por **nivel HSK e tipo gramatical**.
 - **Edición libre e control total** sobre o vocabulario.
-- Integración dunha **IA que axude a completar os campos automaticamente**.
+- Integración dunha **IA que axude coas dúbidas e propoña exercicios a tempo real**.
 - Funcionalidades de **práctica, revisión e exportación profesional**.
 
 Esta aplicación cobre ese oco, ofrecendo unha solución moderna e adaptable.
@@ -48,7 +48,7 @@ Esta aplicación cobre ese oco, ofrecendo unha solución moderna e adaptable.
 Mediante a API de **DeepSeek**, a aplicación poderá:
 
 - Responder a dúbidas lingüísticas mediante un asistente virtual.
-
+- Propoñer exercicios do nivel que sexa necesario, adaptándose dende o mais baixo ata os niveis máis avanzados
 ---
 
 ## Modelo de Negocio (a futuro)
@@ -83,5 +83,17 @@ A aplicación debe permitir:
 - **Base de datos**: SQLite
 - **Exportación**: Ficheiros Excel (.xlsx) con formato limpo e profesional
 - **Autenticación**: Sistema de usuarios con login seguro
-- **IA**: API de DeepSeek para recheo e consulta intelixente
+- **IA**: API de DeepSeek para consulta intelixente
 - **Control de uso da IA**: Limitación de chamadas para estabilidade e seguridade
+
+## Licencia
+
+```text
+GNU General Public License v3.0
+Copyright (c) 2025 Víctor Iglesias
+
+Este proxecto está baixo a licenza GNU General Public License v3.0.
+Podes usalo, modificalo e compartilo libremente, sempre que manteñas esta licenza.
+
+Consulta o ficheiro LICENSE para máis información.
+```

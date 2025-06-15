@@ -4,6 +4,7 @@ from .models import Palabra
 class PalabraTable(tables.Table):
     acciones = tables.TemplateColumn(
         template_code="""
+        <div class="flex flex-col items-center">
         <a href="{% url 'eliminar_palabra' record.pk %}"
             class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded-md text-sm transition font-bold"
             onclick="return confirm('¿Estás seguro de que quieres eliminar esta palabra?');"
@@ -11,10 +12,11 @@ class PalabraTable(tables.Table):
             Eliminar
         </a>
         <a href="{% url 'editar_palabra' record.pk %}"
-            class="bg-yellow-500 ml-2 hover:bg-yellow-600 px-3 py-1 rounded-md text-sm transition font-bold mr-2"
+            class="bg-yellow-500 mt-1 ml-2 hover:bg-yellow-600 px-3 py-1 rounded-md text-sm transition font-bold mr-2"
             title="Editar palabra">
             Editar
         </a>
+        </div>
         """,
         orderable = False,
         verbose_name="Acciones"

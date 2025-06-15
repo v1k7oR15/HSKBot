@@ -26,19 +26,18 @@
 
 | Tarefa                    | Descrición                                           | HW/SW                  | Recursos humanos | Duración |
 | ------------------------- | ---------------------------------------------------- | ---------------------- | ---------------- | -------- |
-| 1.1 Investigación usuario | análise PDFs HSK | Portátil, Google Forms            | Portátil               | Víctor           | 2 h      |
+| 1.1 Investigación usuario | análise PDFs HSK                                     | Portátil               | Víctor           | 2 h      |
 | 1.2 Análise competidores  | Apps HSK existentes, prezos, carencias               | Navegador              | Víctor           | 1 h      |
 
 #### Fase 2: Deseño técnico
 
 | Tarefa                        | Descrición                            | HW/SW                 | Recursos | Dur. |
 | ----------------------------- | ------------------------------------- | --------------------- | -------- | ---- |
-| 2.1 Diagramas UML             | Casos de uso, modelo BD, secuencia IA | Draw\.io              | Víctor   | 2 h  |
+| 2.1 Diagramas UML             | Casos de uso, modelo BD, secuencia IA | PlantUML              | Víctor   | 2 h  |
 | 2.2 Prototipo UI wireframe    | Navegación, mockups Tailwind          | VS Code               | Víctor   | 5 h  |
 | 2.3 Config inicial repo       | GitLab, `.venv`                       | VS Code               | Víctor   | 2 h  |
-| 2.4 Def. API DeepSeek         | Especificar prompts, límite tokens    | Postman               | Víctor   | 2 h  |
-| 2.5 Plan seguridade & back-up | backups BD                            | Markdown              | Víctor   | 2 h  |
-| 2.6 Plan probas               | Matriz de test unit + funcional       | pytest                | Víctor   | 4 h  |
+| 2.4 Plan seguridade & back-up | backups BD                            | Markdown              | Víctor   | 2 h  |
+| 2.5 Plan probas               | Matriz de test unit + funcional       | pytest                | Víctor   | 4 h  |
 
 #### Fase 3: Construcción incremental
 
@@ -98,3 +97,15 @@
 | Publicidade e promoción (difusión orgánica en redes)            | 20 €        |
 | Outros gastos xerais (copias, imprevistos menores)              | 15 €        |
 | Total gastos                                                    | **690 €**   |
+
+## Licencia
+
+```text
+GNU General Public License v3.0
+Copyright (c) 2025 Víctor Iglesias
+
+Este proxecto está baixo a licenza GNU General Public License v3.0.
+Podes usalo, modificalo e compartilo libremente, sempre que manteñas esta licenza.
+
+Consulta o ficheiro LICENSE para máis información.
+```

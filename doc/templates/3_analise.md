@@ -1,5 +1,4 @@
 # REQUIRIMENTOS DO SISTEMA
-Este documento recolle os requirimentos do proxecto HSKBot, unha aplicación web para organizar e estudar vocabulario de chinés mandarín
 
 ## Descrición Xeral
 
@@ -9,8 +8,7 @@ A aplicación integra Tailwind CSS para unha interface limpa, IA (vía DeepSeek)
 ## Funcionalidades
 
 - Rexistro e autenticación (e-mail / social)
-- Alta de caracteres e palabras:
-  - Manual ou automática (petición á IA)
+- Engadir caracteres e palabras:
   - Clasificación por nivel HSK, tipo gramatical, tags personalizados
 - Buscador avanzado (pola forma, pinyin, tradución, nivel, tipo)
 - Filtros dinámicos: nivel HSK exacto ou acumulativo
@@ -36,9 +34,9 @@ A aplicación integra Tailwind CSS para unha interface limpa, IA (vía DeepSeek)
 - Desenvolvemento: Ordenador portátil i5/16 GB ou superior.
 
 #### Software
-- Backend: Python 3.13, Django 5, Django REST Framework, Celery + Redis.
+- Backend: Python 3.13, Django 5, Django REST Framework.
 - Frontend: Tailwind CSS; build automatizado con django-tailwind.
-- Base de datos: SQLite para modo local.
+- Base de datos: SQLite.
 
 ### Interfaces externos
 - Interface de usuario: SPA progresiva servida por Django Templates.
@@ -73,3 +71,15 @@ A aplicación integra Tailwind CSS para unha interface limpa, IA (vía DeepSeek)
 - Múltiples idiomas.
 - Facilitar tamén o aprendizaxe da gramática.
 - Sistema de pagamento e plans de subscrición SaaS.
+
+## Licencia
+
+```text
+GNU General Public License v3.0
+Copyright (c) 2025 Víctor Iglesias
+
+Este proxecto está baixo a licenza GNU General Public License v3.0.
+Podes usalo, modificalo e compartilo libremente, sempre que manteñas esta licenza.
+
+Consulta o ficheiro LICENSE para máis información.
+```

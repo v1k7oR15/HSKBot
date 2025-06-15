@@ -89,3 +89,15 @@ A aplicación é sinxela e intuitiva, non require formación previa.
 - Os datos non se comparten nin se usan para fins comerciais.
 - Cada usuario pode solicitar a eliminación da súa conta e datos asociados.
 - A base de datos está protexida e accesible só desde o backend da aplicación.
+
+## Licencia
+
+```text
+GNU General Public License v3.0
+Copyright (c) 2025 Víctor Iglesias
+
+Este proxecto está baixo a licenza GNU General Public License v3.0.
+Podes usalo, modificalo e compartilo libremente, sempre que manteñas esta licenza.
+
+Consulta o ficheiro LICENSE para máis información.
+```

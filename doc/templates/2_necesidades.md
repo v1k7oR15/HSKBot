@@ -123,3 +123,15 @@ Desenvolver unha aplicación funcional que:
   - Atracción inicial de usuarios sen barreiras de entrada.
   - Monetización sostible sen recorrer á publicidade.
   - Adaptación segundo o perfil do usuario (persoal vs educativo).
+
+  ## Licencia
+
+```text
+GNU General Public License v3.0
+Copyright (c) 2025 Víctor Iglesias
+
+Este proxecto está baixo a licenza GNU General Public License v3.0.
+Podes usalo, modificalo e compartilo libremente, sempre que manteñas esta licenza.
+
+Consulta o ficheiro LICENSE para máis información.
+```
