@@ -3,38 +3,52 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div class="flex flex-row justify-between gap-8">
-    <div class="flex-1">
-        {% if table %}
-        <div class="p-10">
-            <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold text-blue-200">Lista de palabras</h2>
-                <div class="flex gap-x-4">
-                    <a href="{% url 'palabra' %}" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
-                        Añadir palabra
-                    </a>
-                    <a href="{% url 'exportar_palabras' %}" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold shadow transition">
-                        Exportar
-                    </a>
-                </div>
-            </div>
-            {% render_table table %}
+<div class="flex flex-col md:flex-row justify-between items-start gap-8 p-8">
+
+  <!-- PANEL DE LA TABLA -->
+  <div class="w-full md:flex-1">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-bold text-blue-200">Lista de palabras</h2>
+      <div class="flex gap-x-4">
+        <a href="{% url 'palabra' %}"
+           class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">
+          Añadir palabra
+        </a>
+        <a href="{% url 'exportar_palabras' %}"
+           class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold shadow transition">
+          Exportar
+        </a>
+      </div>
+    </div>
+    <!-- Sólo la tabla hace scroll si es muy ancha -->
+    <div class="overflow-x-auto">
+      {% render_table table %}
+    </div>
+  </div>
+
+  <!-- PANEL DE FILTROS -->
+  {% if filter %}
+  <div class="w-full md:w-72 bg-slate-900 bg-opacity-90 p-6 rounded-xl shadow-lg sticky top-24">
+    <form method="get" class="flex flex-col gap-4">
+      {% for field in filter.form %}
+        <div>
+          <label for="{{ field.id_for_label }}" class="block text-blue-100 text-sm mb-1">
+            {{ field.label }}
+          </label>
+          {{ field|add_class:"w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" }}
         </div>
-        {% endif %}
-    </div>
-    {% if filter %}
-    <div class="w-72 bg-slate-900 bg-opacity-90 p-6 rounded-xl shadow-lg mt-10 sticky top-24">
-        <form method="get" class="flex flex-col gap-4">
-            {% for field in filter.form %}
-                <div>
-                    <label for="{{ field.id_for_label }}" class="block text-blue-100 text-sm mb-1">{{ field.label }}</label>
-                    {{ field|add_class:"w-full px-3 py-2 rounded bg-slate-800 border border-slate-700 text-white" }}
-                </div>
-            {% endfor %}
-            <button type="submit" class="w-full cursor-pointer px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition">Filtrar</button>
-            <a href="{% url 'mostrar_palabras' %}" class="w-full text-center px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-semibold shadow transition">Reset</a>
-        </form>
-    </div>
-    {% endif %}
+      {% endfor %}
+      <button type="submit"
+              class="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition text-sm">
+        Filtrar
+      </button>
+      <a href="{% url 'mostrar_palabras' %}"
+         class="w-full block text-center px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-semibold shadow transition text-sm">
+        Reset
+      </a>
+    </form>
+  </div>
+  {% endif %}
+
 </div>
 {% endblock %}

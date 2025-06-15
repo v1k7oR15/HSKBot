@@ -4,10 +4,10 @@ from django.template.loader import render_to_string
 from django.contrib.auth import authenticate, login
 from .ia.deepseek import ai_message
 from django.http import HttpResponse
-from .forms import RegistroForm, LoginForm, PalabraForm
+from .forms import RegistroForm, LoginForm, PalabraForm, UserUpdateForm, PerfilUsuarioForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Palabra, Tipo
+from .models import Palabra, Tipo, PerfilUsuario
 from .tables import PalabraTable
 from .filter import PalabraFilter
 from django.db import IntegrityError
@@ -17,12 +17,15 @@ import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment
 from openpyxl.utils import get_column_letter
 from .models import Palabra
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 
 def base_view(request):
     # Recupera el historial de la sesión o crea uno nuevo
     return render(request, 'inicio.html')
 
+@login_required
 def chat_view(request):
     # Esta vista es para manejar la lógica del chat
     mensajes = request.session.get('mensajes', [])
@@ -196,3 +199,28 @@ def exportar_palabras_excel(request):
     response['Content-Disposition'] = 'attachment; filename=palabras_agrupadas.xlsx'
     wb.save(response)
     return response
+
+@login_required
+def editar_usuario(request):
+    user_form = UserUpdateForm(request.POST or None, instance=request.user)
+    perfil, _ = PerfilUsuario.objects.get_or_create(usuario=request.user)
+    perfil_form = PerfilUsuarioForm(request.POST or None, request.FILES or None, instance=perfil)
+    password_form = PasswordChangeForm(request.user, request.POST or None)
+
+    if request.method == 'POST':
+        if 'guardar_datos' in request.POST:
+            if user_form.is_valid() and perfil_form.is_valid():
+                user_form.save()
+                perfil_form.save()
+                return redirect('editar_usuario')
+        elif 'cambiar_password' in request.POST:
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)
+                return redirect('editar_usuario')
+
+    return render(request, 'editar_usuario.html', {
+        'form': user_form,
+        'perfil_form': perfil_form,
+        'password_form': password_form,
+    })

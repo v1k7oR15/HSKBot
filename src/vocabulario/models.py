@@ -24,4 +24,14 @@ class Palabra(models.Model):
         ordering = ['nivel_hsk', 'tipo', 'palabra']
 
     def __str__(self):
-        return f"{self.palabra} ({self.usuario.username})"
+        return f'{self.palabra} ({self.usuario.username})'
+
+def ruta_imagen(instance, filename):
+    return f'perfiles/user_{instance.usuario.id}/{filename}'
+
+class PerfilUsuario(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
+    imagen = models.ImageField(upload_to=ruta_imagen, blank=True, null=True)
+
+    def __str__(self):
+        return f'Perfil de {self.usuario.username}'

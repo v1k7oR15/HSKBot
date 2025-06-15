@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?famil:ital,wght@0,300..900;1,300..900&display=swapy=Rubik" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     {% tailwind_preload_css %}
     {% tailwind_css %}
     <script src="{% static 'js/chat.js' %}"></script>
@@ -28,12 +28,11 @@
             <div class="flex items-center space-x-8">
                 <div class="flex items-center space-x-4">
                     {% if user.is_authenticated %}
-                        <form method="post" action="{% url 'logout' %}">
-                            {% csrf_token %}
+                        <a href="{% url 'editar_usuario' %}">
                             <button type="submit" class="text-white hover:text-blue-300">
-                                <img src="{% static 'assets/svg/userwhite.svg' %}" alt="Logout Icon" class="cursor-pointer w-8 h-8">
+                                <img src="{% static 'assets/svg/userwhite.svg' %}" alt="User Icon" class="cursor-pointer w-8 h-8">
                             </button>
-                        </form>
+                        </a>
                     {% else %}
                         <a href="{% url 'login' %}">
                             <button class="cursor-pointer flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow transition duration-150">
@@ -46,7 +45,7 @@
         </header>
         <div class="flex flex-1 min-h-0 relative">
             <!-- Overlay oscuro -->
-            <div id="menu-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-10 z-40 hidden md:hidden"></div>
+            <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
             <!-- Aside: menú lateral -->
             <aside id="sidebar"
                 class="fixed z-50 top-0 left-0 h-full w-64 bg-slate-900 p-4 transform -translate-x-full transition-transform duration-200 ease-in-out

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Palabra, Tipo
+from .models import Palabra, Tipo, PerfilUsuario
 
 class RegistroForm(forms.ModelForm):
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
@@ -43,3 +43,23 @@ class PalabraForm(forms.ModelForm):
     class Meta:
         model = Palabra
         fields = ['palabra', 'pinyin', 'traduccion', 'tipo', 'nivel_hsk', 'ejemplo']
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'Nombre'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Apellido'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Correo electrónico'}),
+        }
+
+class PerfilUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = PerfilUsuario
+        fields = ['imagen']
+        widgets = {
+            'imagen': forms.FileInput(attrs={
+                'class': 'bg-slate-800 text-white rounded px-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-400 file:bg-blue-600 file:text-white file:rounded file:px-3 file:py-2'
+            }),
+        }
